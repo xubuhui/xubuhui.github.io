@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-07-18T10:46:50.656Z</updated>
+  <updated>2019-07-19T08:12:35.197Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>说点什么呢？</title>
+    <link href="/2019/07/19/%E8%AF%B4%E7%82%B9%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F/"/>
+    <id>/2019/07/19/说点什么呢？/</id>
+    <published>2019-07-19T08:12:35.000Z</published>
+    <updated>2019-07-19T08:12:35.197Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我来说点什么吧0.0</title>
+    <link href="/2019/07/19/%E6%88%91%E6%9D%A5%E8%AF%B4%E7%82%B9%E4%BB%80%E4%B9%88%E5%90%A70.0/"/>
+    <id>/2019/07/19/我来说点什么吧0.0/</id>
+    <published>2019-07-19T08:12:35.000Z</published>
+    <updated>2019-07-19T13:18:34.811Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;怎么说呢，我之前真的好懒呀，身为程序猿，连一个属于自己的正二八经的blog都没有，github也是刚捡起来（我可是真的懒0.0），从今天起，我要从这个小blog中记录工作学习中遇到的问题，也会时不时分享一些心得感悟啥的，大家也可以多了解下一个中二的小哥哥。&lt;/p&gt;
+&lt;p&gt;其
+        
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo-Theme-Sakura</title>
