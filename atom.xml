@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2019-07-20T10:18:15.294Z</updated>
+  <updated>2019-07-21T02:08:51.076Z</updated>
   <id>/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>html运行exe文件，兼容浏览器</title>
+    <link href="/2019/07/21/html%E8%BF%90%E8%A1%8Cexe%E6%96%87%E4%BB%B6%EF%BC%8C%E5%85%BC%E5%AE%B9%E6%B5%8F%E8%A7%88%E5%99%A8/"/>
+    <id>/2019/07/21/html运行exe文件，兼容浏览器/</id>
+    <published>2019-07-21T02:07:35.000Z</published>
+    <updated>2019-07-21T02:08:51.076Z</updated>
+    
+    <summary type="html">
+    
+      利用注册表使网页打开本地exe程序
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="技术" scheme="/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="html" scheme="/tags/html/"/>
+    
+  </entry>
   
   <entry>
     <title>我来说点什么吧0.0</title>
