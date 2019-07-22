@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">rss | HeZ</title>
+  <title itemprop="name">Hexo+Valine+Leancloud快速搭建评论系统 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -394,12 +394,112 @@
 
 </header>
 
-        <div class="pattern-center-blank"></div>
-  
-  <div id="content" class="site-content">
-    <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      
-      <!-- .entry-content -->
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Hexo+Valine+Leancloud快速搭建评论系统</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.github.io">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-7-22<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="Valine"><a href="#Valine" class="headerlink" title="Valine"></a>Valine</h2><p>我知道的Hexo评论系统还存活的有以下几种：</p>
+<ul>
+<li>畅言</li>
+<li>Disqus</li>
+<li>Hypercomments</li>
+<li>valine</li>
+</ul>
+<p>畅言虽然不错，但是需要备案，对一些初次搭建blog的人来说，很不友好，感觉大部分人会选择用github或者coding搭建blog。而且Disqus，Hypercomments和LiveRe都是国外的，加载速度挺慢。</p>
+<p>所以说我最后选择用Valine来搭建我的博客系统，下面看我操作。</p>
+<h3 id="Leancloud初体验"><a href="#Leancloud初体验" class="headerlink" title="Leancloud初体验"></a>Leancloud初体验</h3><p>首先我们需要去Leancloud<a href="https://leancloud.cn/" target="_blank" rel="noopener">https://leancloud.cn/</a>上注册一个帐号，记住注册的时候尽量去<strong>国际版</strong><a href="https://leancloud.app/" target="_blank" rel="noopener">https://leancloud.app/</a>注册，我用华东节点和华北节点都会提示我：</p>
+<p><strong>Client verification not granted.</strong></p>
+<p>刚开始我也蒙圈了，最后用国际版重新注册解决的问题，貌似他们国际版和两个节点<em>分家</em>了。</p>
+<p>注册完帐号之后，来到控制台，</p>
+<p><img src="C:\Users\Administrator\Desktop\hexo\valine1.png" alt="valine1"></p>
+<p>创建一个新应用，应用名随便输入，如果你是个人blog就用开发版，然后点击创建。</p>
+<h3 id="Leancloud使用"><a href="#Leancloud使用" class="headerlink" title="Leancloud使用"></a>Leancloud使用</h3><p>创建完应用之后，点击一下刚创建的应用，进入应用设置-&gt;应用 key<img src="C:\Users\Administrator\Desktop\hexo\valine2.png" alt="valine2"></p>
+<p>然后记录下App ID和App Key的值，这相当于我们连接Leancloud的帐号密码。</p>
+<p>记得要进入安全中心，设置好web安全域名，就是你blog的地址。<img src="C:\Users\Administrator\Desktop\hexo\valine3.png" alt="valine3"></p>
+<h3 id="Valine使用"><a href="#Valine使用" class="headerlink" title="Valine使用"></a>Valine使用</h3><p>使用前最好下载最新的Valine，然后在主题下的_config.yml文件配置valine。</p>
+<pre><code>valine:
+  enable: true
+  app_id: 你的 app_id
+  app_key:  你的 app_key
+</code></pre><p>重新发布网站，大功告成，恭喜你的blog也可以收到评论了！</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2019/07/21/html运行exe文件，兼容浏览器/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.9/img/banner/miku.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.9/img/banner/miku.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                html运行exe文件，兼容浏览器</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
 <div id="vcomments"></div>
 <script>
@@ -415,33 +515,24 @@
   }
 </script>
 
-      <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-      <footer class="post-footer">
-        <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-        <div class="post-tags">
-        </div>
-        <div class="post-share">
-          <div class="social-share sharehidden share-component"></div>
-          <i class="iconfont show-share icon-forward"></i>
-        </div>
-      </footer><!-- .entry-footer -->
-    </article>
-      <!-- #post-## -->
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="/about/" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="https://xubuhui.coding.me" itemprop="url" rel="author">HeZ</a>
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>纵有千古，横有八荒；前途似海，来日方长。</p>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
       </section>
+    </main><!-- #main -->
   </div><!-- #primary -->
 </div>
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
