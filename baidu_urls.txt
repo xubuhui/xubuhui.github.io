@@ -1,1 +1,1 @@
-https://xubuhui.coding.me/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/
+https://xubuhui.coding.me/2019/07/24/超简单！js使用echarts/

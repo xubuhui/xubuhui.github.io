@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2019 | HeZ</title>
+  <title itemprop="name">超简单！js使用echarts | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -394,104 +394,165 @@
 
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.9/img/banner/miku.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.9/img/banner/miku.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      超简单！js使用echarts</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.coding.me">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.coding.me">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2019-7-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2019年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      07月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2019/07/24/超简单！js使用echarts/">
-                          <span style="color:#0bf;">
-                          24日12:27:54</span>
-                          超简单！js使用echarts
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/">
-                          <span style="color:#0bf;">
-                          22日13:11:15</span>
-                          Hexo+Valine+Leancloud快速搭建评论系统
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2019/07/21/html运行exe文件，兼容浏览器/">
-                          <span style="color:#0bf;">
-                          21日10:07:35</span>
-                          html运行exe文件，兼容浏览器
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2019/07/19/我来说点什么吧0.0/">
-                          <span style="color:#0bf;">
-                          19日16:12:35</span>
-                          我来说点什么吧0.0
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="echarts"><a href="#echarts" class="headerlink" title="echarts"></a>echarts</h2><p>Echarts的官网<a href="https://echarts.baidu.com/" target="_blank" rel="noopener">https://echarts.baidu.com/</a>,Echarts官网有很多demo可以供我们使用，这一点可以说是很良心了，不说废话了直接进入主题。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts2.png" alt="img"></p>
+<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先在确定安装好node.js的前提下，在项目目录cmd命令行下输入</p>
+<p><code>npm install echarts</code></p>
+<p>安装echarts依赖。</p>
+<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>把图中所示的echart.js文件复制到和你的项目文件同级目录下再引入,当然你也可以直接引入，我主要是为了方便。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts1.png" alt="img"></p>
+<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>新建html文件，输入代码</p>
+<pre><code>&lt;body&gt;
+&lt;!--创建div容器--&gt;
+&lt;div id=&quot;chart&quot; style=&quot;width:600px; height: 400px;&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;!--引入charts.js--&gt;
+&lt;script src=&quot;echarts.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    //指定图标的配置和数据
+    var option = {
+        title:{
+            text:&#39;ECharts 数据统计&#39;
+        },
+        tooltip:{},
+        legend:{
+            data:[&#39;用户来源&#39;]
+        },
+        xAxis:{
+            data:[&quot;Android&quot;,&quot;IOS&quot;,&quot;PC&quot;,&quot;Ohter&quot;]
+        },
+        yAxis:{
+
+        },
+        series:[{
+            name:&#39;访问量&#39;,
+            type:&#39;line&#39;,
+            data:[500,200,360,100]
+        }]
+    };
+    //初始化echarts实例
+    var myChart = echarts.init(document.getElementById(&#39;chart&#39;));
+
+    //使用制定的配置项和数据显示图表
+    myChart.setOption(option);
+&lt;/script&gt;
+</code></pre><p><strong>效果图如下：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts3.png" alt="img"></p>
+<p>一个简单的echarts图就生成了！</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.0/img/me/ali.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.0/img/me/ali.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Hexo+Valine+Leancloud快速搭建评论系统</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "UlUr0C7tHlxcJfwTxebJedid-MdYXbMMI",
+        appKey: "4FOSooUGgGq09sRYAapcjQih",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="xubuhui.coding.me" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="xubuhui.coding.me" itemprop="url" rel="author">HeZ</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">
