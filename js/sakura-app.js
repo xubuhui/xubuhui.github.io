@@ -1,4 +1,4 @@
-;
+ ;
 var _typeof = typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol' ? function (a) {
   return typeof a
 } : function (a) {
