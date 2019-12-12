@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xubuhui.coding.me/"/>
-  <updated>2019-09-24T00:34:45.308Z</updated>
+  <updated>2019-12-12T05:47:46.849Z</updated>
   <id>https://xubuhui.coding.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java贪吃蛇</title>
+    <link href="https://xubuhui.coding.me/2019/12/12/java%E8%B4%AA%E5%90%83%E8%9B%87-%E5%AE%9E%E8%AE%AD%E5%91%A8/"/>
+    <id>https://xubuhui.coding.me/2019/12/12/java贪吃蛇-实训周/</id>
+    <published>2019-12-12T05:25:34.000Z</published>
+    <updated>2019-12-12T05:47:46.849Z</updated>
+    
+    <summary type="html">
+    
+      java实训周小游戏
+    
+    </summary>
+    
+      <category term="技术" scheme="https://xubuhui.coding.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="java" scheme="https://xubuhui.coding.me/tags/java/"/>
+    
+      <category term="小游戏" scheme="https://xubuhui.coding.me/tags/%E5%B0%8F%E6%B8%B8%E6%88%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>js上传并显示图片</title>
