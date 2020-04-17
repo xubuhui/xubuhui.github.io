@@ -86,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://xubuhui.coding.me/rss/index.html</loc>
+    <loc>https://xubuhui.coding.me/comment/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://xubuhui.coding.me/comment/index.html</loc>
+    <loc>https://xubuhui.coding.me/rss/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
@@ -114,13 +114,6 @@
   </url>
   
   <url>
-    <loc>https://xubuhui.coding.me/video/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xubuhui.coding.me/bangumi/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
@@ -129,6 +122,13 @@
   
   <url>
     <loc>https://xubuhui.coding.me/client/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xubuhui.coding.me/video/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
