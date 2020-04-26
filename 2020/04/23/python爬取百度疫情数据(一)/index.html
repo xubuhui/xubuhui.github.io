@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">java贪吃蛇 | HeZ</title>
+  <title itemprop="name">python爬取百度疫情数据(一) | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -398,23 +398,23 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.4/img/me/dm1.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.4/img/me/dm1.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      java贪吃蛇</h1>
+      python爬取百度疫情数据(一)</h1>
       <p class="entry-census">
         <span>
-          <a href="xubuhui.coding.me">
+          <a href="xubuhui.github.io">
             <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
           </a>
         </span>
         <span>
-          <a href="xubuhui.coding.me">HeZ</a>
+          <a href="xubuhui.github.io">HeZ</a>
         </span>
         <span class="bull">
         ·</span>
-        2019-12-12<span class="bull">
+        2020-4-23<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -428,36 +428,101 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="基本要求"><a href="#基本要求" class="headerlink" title="基本要求"></a>基本要求</h2><h4 id="1、-注册功能"><a href="#1、-注册功能" class="headerlink" title="1、 注册功能"></a>1、 注册功能</h4><h5 id="1-1、-注册界面设计"><a href="#1-1、-注册界面设计" class="headerlink" title="1.1、 注册界面设计"></a>1.1、 注册界面设计</h5><h5 id="1-2、-注册功能"><a href="#1-2、-注册功能" class="headerlink" title="1.2、 注册功能"></a>1.2、 注册功能</h5><p>注册时需要验证密码（两次输入密码），密码不一致无法注册，并提示信息</p>
-<p>已存在的用户名无法注册，并提示信息</p>
-<h4 id="2、-分数展示"><a href="#2、-分数展示" class="headerlink" title="2、 分数展示"></a>2、 分数展示</h4><p>一个食物记一分，当吃到食物时，分数加1，并显示</p>
-<h4 id="3、-游戏提速"><a href="#3、-游戏提速" class="headerlink" title="3、 游戏提速"></a>3、 游戏提速</h4><p>当吃到食物的个数为5的倍数时，提高蛇的移动速度</p>
-<h4 id="4、-分数保存"><a href="#4、-分数保存" class="headerlink" title="4、 分数保存"></a>4、 分数保存</h4><p>游戏结束时，保存分数到数据库</p>
-<h4 id="5、-按钮功能实现"><a href="#5、-按钮功能实现" class="headerlink" title="5、 按钮功能实现"></a>5、 按钮功能实现</h4><h4 id="6、-游戏bug"><a href="#6、-游戏bug" class="headerlink" title="6、 游戏bug"></a>6、 游戏bug</h4><p>当蛇头前进方向为→时，快速按下↑跟←时，游戏会结束</p>
-<h4 id="7、-也可扩展其他功能，如扩展其他功能，在答辩时需要指明"><a href="#7、-也可扩展其他功能，如扩展其他功能，在答辩时需要指明" class="headerlink" title="7、 也可扩展其他功能，如扩展其他功能，在答辩时需要指明"></a>7、 也可扩展其他功能，如扩展其他功能，在答辩时需要指明</h4><h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><ol>
-<li><h5 id="注册用户名为空判断"><a href="#注册用户名为空判断" class="headerlink" title="注册用户名为空判断"></a>注册用户名为空判断</h5></li>
-<li><h5 id="默认浏览器打开github源码-》代码共享"><a href="#默认浏览器打开github源码-》代码共享" class="headerlink" title="默认浏览器打开github源码 =》代码共享"></a>默认浏览器打开github源码 =》代码共享</h5></li>
-<li><h5 id="新线程开启Bgm-》重新游戏重置bgm"><a href="#新线程开启Bgm-》重新游戏重置bgm" class="headerlink" title="新线程开启Bgm =》重新游戏重置bgm"></a>新线程开启Bgm =》重新游戏重置bgm</h5></li>
-<li><h5 id="界面优化"><a href="#界面优化" class="headerlink" title="界面优化"></a>界面优化</h5></li>
-<li><h5 id="得分提示框-》谁-得了-多少分-》"><a href="#得分提示框-》谁-得了-多少分-》" class="headerlink" title="得分提示框  =》谁-得了-多少分-》"></a>得分提示框  =》谁-得了-多少分-》</h5></li>
-<li><h5 id="得分共享排行-–不做了-–利用远程数据库，链接时加载有点慢不做了"><a href="#得分共享排行-–不做了-–利用远程数据库，链接时加载有点慢不做了" class="headerlink" title="得分共享排行 –不做了  –利用远程数据库，链接时加载有点慢不做了"></a>得分共享排行 –不做了  –利用远程数据库，链接时加载有点慢不做了</h5></li>
-<li><h5 id="登陆-admin账号-user账号-admin和user登陆提示信息不同-》数据库整型标识代表权限"><a href="#登陆-admin账号-user账号-admin和user登陆提示信息不同-》数据库整型标识代表权限" class="headerlink" title="登陆-admin账号-user账号 admin和user登陆提示信息不同-》数据库整型标识代表权限"></a>登陆-admin账号-user账号 admin和user登陆提示信息不同-》数据库整型标识代表权限</h5><pre><code>A. 增加数据库字段，记录最后一次登录时间 -lasttime
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>百度疫情和腾讯疫情数据数据爬取方式不同，腾讯疫情数据把数据放在数据包里，而百度则把数据包裹在script标签内。</p>
+<p><a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" rel="noopener">百度实时疫情网址</a></p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编辑器还是推荐 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">PyCharm下载链接</a></p>
+<p>本篇需要导入的python模块</p>
+<blockquote>
+<p>import json<br>import requests<br>from lxml import etree<br>import openpyxl </p>
+</blockquote>
+<p>json —— 老朋友了，这个模块主要是解码编码，以及格式转换</p>
+<p>requests——灵活的爬虫库，requests请求的底层实现其实就是urllib3，不要再用urllib2做爬虫了，兄弟萌。</p>
+<p>etree——主要是为了从html源码中得到自己想要的内容。</p>
+<p>openpyxl——处理excel文件</p>
+<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>我感觉做爬虫最重要的还是数据来源的分析，因为每一个网站数据来源都有可能不一样，就像百度和腾讯做的疫情实时数据，不得不说，百度这一块做得确实比腾讯有过之而无不及。</p>
+<p>首先进入网站，我一开始也是老三样，F12-&gt;Network-&gt;XHR，发现只有一个数据包，但是并没有我们想要的数据。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0/img/blog/baiduyq1.png" alt="img"></p>
+<p>然后准备从网页源码入手，复制一个数据查找后，发现数据被包裹在一个script标签内，然后准备先把script标签内的数据扒下来。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0/img/blog/baiduyq2.png" alt="img"></p>
+<p>分析数据的时候要跟原网页数据对应，确定数据的中文意思。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0/img/blog/baiduyq3.png" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0/img/blog/baiduyq4.png" alt="img"></p>
+<p>国内数据在caseList内</p>
+<blockquote>
+<p>国内数据对应参数</p>
+<p>省份——area</p>
+<p>累计确诊——confirmed</p>
+<p>死亡——died</p>
+<p>治愈——crued</p>
+<p>现有确诊——curConfirm</p>
+<p>累计确诊增量——confirmedRelative</p>
+</blockquote>
+<p>海外数据在globalList内</p>
+<blockquote>
+<p>海外数据对应参数</p>
+<p>洲——area</p>
+<p>国家——country</p>
+<p>累计确诊——confirmed</p>
+<p>死亡——died</p>
+<p>治愈——crued</p>
+<p>现有确诊——curConfirm</p>
+<p>累计确诊增量——confirmedRelative</p>
+</blockquote>
+<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><pre><code class="python">import json
+import requests
+from lxml import etree
+import openpyxl
 
-B. 普通用户进入界面没有后台管理功能，Admin账号可以看到后台管理功能-》点击进入后台
+url = &#39;https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&#39;
+response = requests.get(url)
+# print(response.text)
+# 生成html对象
+html = etree.HTML(response.text)
+# 获取列表
+r = html.xpath(&#39;//script[@type=&quot;application/json&quot;]/text()&#39;)
+# json.loads将字符串转换为python数据类型
+result = json.loads(r[0])
+# print(result[&#39;component&#39;][0][&#39;caseList&#39;])
+# 创建工作簿
+wb = openpyxl.Workbook()
+# 创建工作表
+ws = wb.active
+ws.title = &#39;国内疫情&#39;
+# 表头
+ws.append([&#39;省份&#39;,&#39;累计确诊&#39;,&#39;死亡&#39;,&#39;治愈&#39;,&#39;现有确诊&#39;,&#39;累计确诊增量&#39;])
+# 国内疫情数据
+result_in = result[&#39;component&#39;][0][&#39;caseList&#39;]
+for data_in in result_in:
+    temp_list = [data_in[&#39;area&#39;], data_in[&#39;confirmed&#39;],data_in[&#39;died&#39;],data_in[&#39;crued&#39;],data_in[&#39;curConfirm&#39;],
+               data_in[&#39;confirmedRelative&#39;]
+                 ]
+    # 判断是否为空 如果空数据则赋值 0，0是字符串
+    for i in range(len(temp_list)):
+        if temp_list[i] == &#39;&#39;:
+            temp_list[i] = &#39;0&#39;
+    ws.append(temp_list)
+# 国外疫情数据
+result_out = result[&#39;component&#39;][0][&#39;globalList&#39;];
+# print(result_out)
+for data_out in result_out:
+    # 表名
+    sheet_title = data_out[&#39;area&#39;]
+    # 创建新的工作表
+    ws_out = wb.create_sheet(sheet_title)
+    ws_out.append([&#39;国家&#39;,&#39;累计确诊&#39;,&#39;死亡&#39;,&#39;治愈&#39;,&#39;现有确诊&#39;,&#39;累计确诊增量&#39;])
+    # subList 具体国家疫情数据
+    for sub_out in data_out[&#39;subList&#39;]:
+        sub_list = [sub_out[&#39;country&#39;], sub_out[&#39;confirmed&#39;],sub_out[&#39;died&#39;],sub_out[&#39;crued&#39;],sub_out[&#39;curConfirm&#39;],
+               sub_out[&#39;confirmedRelative&#39;]]
+        # 防止数据为空 如果空则 赋值0
+        for i in range(len(sub_list)):
+            if sub_list[i] == &#39;&#39;:
+                sub_list[i] = &#39;0&#39;
+        ws_out.append(sub_list)
+wb.save(&#39;./data.xlsx&#39;)
+print(&quot;Ok&quot;)
+</code></pre>
 
-C. 后台管理界面 -js+layui实现 
-
-D. 用户信息列表账号相关的增删改  分数排行表的查询删除-排名 -分页  数据条数统计
-
-E. 后台界面更换主题
-
-F. 数据分析-提取数据库信息 利用echarts 实现数据可视化功能
-
-    a. 游戏次数分析图---查询出数据库所有用户的游戏次数，前端用饼图表示
-
-    b. 历史分数排行榜-查询出数据库所有用户的游戏分数，并按分数排序，用柱状图表示</code></pre></li>
-</ol>
-<h4 id="源码我放在github上了https-github-com-xubuhui-snakename"><a href="#源码我放在github上了https-github-com-xubuhui-snakename" class="headerlink" title="源码我放在github上了https://github.com/xubuhui/snakename"></a>源码我放在github上了<a href="https://github.com/xubuhui/snakename" target="_blank" rel="noopener">https://github.com/xubuhui/snakename</a></h4>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -487,15 +552,15 @@ F. 数据分析-提取数据库信息 利用echarts 实现数据可视化功能
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/04/10/php开启redis扩展/" rel="prev">
+            <a href="/2020/04/24/python爬取百度疫情数据(二) - wordcloud词云/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.6/img/me/ali.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.6/img/me/ali.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                php开启redis扩展</h3>
+                python爬取百度疫情数据(二) - wordcloud词云</h3>
                 <hr>
               </div>
             </a>
@@ -505,15 +570,15 @@ F. 数据分析-提取数据库信息 利用echarts 实现数据可视化功能
           
             <div class="post-nepre half next">
           
-            <a href="/2019/08/02/js上传并显示图片/" rel="next">
+            <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（二）/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.3/img/me/dm4.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.3/img/me/dm4.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm5.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm5.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                js上传并显示图片</h3>
+                python爬取腾讯疫情数据并可视化（二）</h3>
                 <hr>
               </div>
             </a>
@@ -537,11 +602,11 @@ F. 数据分析-提取数据库信息 利用echarts 实现数据可视化功能
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="xubuhui.coding.me" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="xubuhui.coding.me" itemprop="url" rel="author">HeZ</a>
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
             </h3>
           </div>
         </div>

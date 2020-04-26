@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: java | HeZ</title>
+  <title itemprop="name">python爬取百度疫情数据(三) - pyecharts疫情分布地图 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -392,64 +392,335 @@
 
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="java.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python爬取百度疫情数据(三) - pyecharts疫情分布地图</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.github.io">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-25<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">java</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2019/12/12/java贪吃蛇-实训周/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这一篇综合从<a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" rel="noopener">百度实时疫情网址</a>爬取数据并用pyecharts显示疫情地图分布。</p>
+<p>其中地图分为具体省份疫情地图和中国总体疫情地图。</p>
+<p>每一个省份对应一个html地图。</p>
+<p><a href="http://gallery.pyecharts.org/#/Map/" target="_blank" rel="noopener">pyecharts map模块链接</a></p>
+<h3 id="实现思路是"><a href="#实现思路是" class="headerlink" title="实现思路是"></a>实现思路是</h3><blockquote>
+<ol>
+<li>获取数据</li>
+<li>保存为html.txt文件</li>
+<li>解析html.txt，获取需要的数据，并保存为data.json</li>
+<li>分别创建省份疫情地图和中国疫情的方法，填充数据</li>
+<li>运行main.py</li>
+</ol>
+</blockquote>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>在map_draw.py中，其中具体省份疫情地图是用的pyecharts官网<a href="http://gallery.pyecharts.org/#/Map/map_guangdong" target="_blank" rel="noopener">广东地图实例</a>，其中有一个参数<strong>Faker.guangdong_city</strong>，我们把demo复制到pycharm   <strong>ctrl+鼠标左键</strong> 进入这个参数后，</p>
+<p>发现这个参数的数据是这样的：</p>
+<blockquote>
+<p>guangdong_city = [“汕头市”, “汕尾市”, “揭阳市”, “阳江市”, “肇庆市”, “广州市”, “惠州市”]</p>
+</blockquote>
+<p>而我们获取的数据有些是不带市的，所以要进行一下字符串的处理</p>
+<pre><code class="python">for each_city in each[&#39;subList&#39;]:
+            city.append(each_city[&#39;city&#39;] + &quot;市&quot;)
+            confirmeds.append(each_city[&#39;confirmed&#39;])
+            map.to_map_city(city, confirmeds, province, update_tqime)
+        if province == &#39;上海&#39; or &#39;北京&#39; or &#39;天津&#39; or &#39;重庆&#39;:
+            for each_city in each[&#39;subList&#39;]:
+                city.append(each_city[&#39;city&#39;])
+                confirmeds.append(each_city[&#39;confirmed&#39;])
+                map.to_map_city(city, confirmeds, province, update_time)</code></pre>
+<p>注意需要提前在根目录建好map文件夹，存储具体省份的疫情图。</p>
+<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p>中国总体累计确诊分布图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.2/img/blog/baiduiyq7.png" alt="img"></p>
+<p>广东省累计确诊分布图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.2/img/blog/baiduyq8.png" alt="img"></p>
+<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><p><strong>data_get.py:</strong></p>
+<pre><code class="python">import requests
+from lxml import etree
+import json
+import re
+
+
+# 获取数据
+class Get_data():
+    # 抓取数据
+    def get_data(self):
+        url = &#39;https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&#39;
+        response = requests.get(url)
+        with open(&#39;html.txt&#39;,&#39;w&#39;) as file:
+            file.write(response.text)
+            print(&quot;写入txt成功&quot;)
+
+    # 获得更新时间
+    def get_time(self):
+        with open(&#39;html.txt&#39;, &#39;r&#39;) as file:
+            text = file.read()
+        time = re.findall(&#39;&quot;mapLastUpdatedTime&quot;:&quot;(.*?)&quot;&#39;, text)[0]
+        return time
+
+    # 解析数据
+    def parse_data(self):
+        with open(&#39;html.txt&#39;, &#39;r&#39;) as file:
+            text = file.read()
+        html = etree.HTML(text)
+        result = html.xpath(&#39;//script[@type=&quot;application/json&quot;]/text()&#39;)[0]
+        result = json.loads(result)
+        result = result[&#39;component&#39;][0][&#39;caseList&#39;]
+        # result[&#39;component&#39;][0]获得列表第0项 是一个字典
+        # print(result[&#39;component&#39;][0][&#39;caseList&#39;])
+        # 字典转换为字符串
+        result = json.dumps(result)
+        with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+            file.write(result)
+            print(&#39;写入json成功&#39;)
+
+
+# data = Get_data()
+# data.get_data()
+# data.get_time()
+# data.parse_data()
+</code></pre>
+<p><strong>data_more.py</strong></p>
+<pre><code class="python">import json
+import map_draw
+import data_get
+
+with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+    data = file.read()
+    data = json.loads(data)
+map = map_draw.Draw_map()
+
+
+# print(data)
+# 中国疫情地图数据
+def china_map(update_time):
+    area = []
+    confirmed = []
+    for each in data:
+        # print(each)
+        area.append(each[&#39;area&#39;])
+        confirmed.append(each[&#39;confirmed&#39;])
+    map.to_map_china(area, confirmed, update_time)
+
+
+# 省份疫情地图数据
+def province_map(update_time):
+    for each in data:
+        city = []
+        confirmeds = []
+        province = each[&#39;area&#39;]
+        # 出现空列表是因为特别行政区
+        for each_city in each[&#39;subList&#39;]:
+            city.append(each_city[&#39;city&#39;] + &quot;市&quot;)
+            confirmeds.append(each_city[&#39;confirmed&#39;])
+            map.to_map_city(city, confirmeds, province, update_time)
+        if province == &#39;上海&#39; or &#39;北京&#39; or &#39;天津&#39; or &#39;重庆&#39;:
+            for each_city in each[&#39;subList&#39;]:
+                city.append(each_city[&#39;city&#39;])
+                confirmeds.append(each_city[&#39;confirmed&#39;])
+                map.to_map_city(city, confirmeds, province, update_time)
+    print(&quot;生成城市疫情地图成功&quot;)
+</code></pre>
+<p><strong>map_draw.py</strong></p>
+<pre><code class="python">from pyecharts import options as opts
+from pyecharts.charts import Map
+from pyecharts.faker import Faker
+
+
+class Draw_map():
+    # 颜色RGB转换 脱离函数，不需要定义self
+    def get_color(self,a,b,c):
+        result = &#39;#&#39;+&#39;&#39;.join(map((lambda x:&quot;%02x&quot; % x),(a,b,c)))
+        return result.upper()
+
+    def to_map_city(self, area, variate,province,update_time):
+        pieces = [
+            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, &#39;label&#39;: &#39;&gt;10000&#39;, &#39;color&#39;: self.get_color(102,2,8)},
+            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, &#39;label&#39;: &#39;1000-9999&#39;, &#39;color&#39;:self.get_color(140,13,13)},
+            {&quot;max&quot;: 999, &quot;min&quot;: 500, &#39;label&#39;: &#39;500-999&#39;, &#39;color&#39;:self.get_color(204,41,41)},
+            {&quot;max&quot;: 499, &quot;min&quot;: 100, &#39;label&#39;: &#39;100-999&#39;, &#39;color&#39;: self.get_color(255,123,105)},
+            {&quot;max&quot;: 99, &quot;min&quot;: 50, &#39;label&#39;: &#39;50-99&#39;, &#39;color&#39;: self.get_color(255,170,133)},
+            {&quot;max&quot;: 49, &quot;min&quot;: 10, &#39;label&#39;: &#39;10-49&#39;, &#39;color&#39;:self.get_color(255,202,179)},
+            {&quot;max&quot;: 9, &quot;min&quot;: 1, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: self.get_color(255,228,217)},
+            {&quot;max&quot;: 0, &quot;min&quot;: 0, &#39;label&#39;: &#39;0&#39;, &#39;color&#39;: self.get_color(255,255,255)},
+        ]
+
+        c = (
+            # 设置地图大小
+            Map(init_opts=opts.InitOpts(width=&#39;1000px&#39;,height=&#39;880px&#39;))
+                .add(&quot;累计确诊人数&quot;, [list(z) for z in zip(area, variate)],province,is_map_symbol_show=False)
+                .set_global_opts(
+                title_opts=opts.TitleOpts(title=&quot;%s地区疫情地图分布&quot;%(province),subtitle=&#39;截至%s %s省疫情分布情况&#39;%(update_time,province)
+                                          ,pos_left=&#39;center&#39;,pos_top=&#39;30px&#39;,),
+                legend_opts=opts.LegendOpts(is_show=False),
+                visualmap_opts=opts.VisualMapOpts(max_=200, is_piecewise=True, pieces=pieces)
+            )
+                .render(&quot;./map/{}疫情地图.html&quot;.format(province))
+        )
+
+    def to_map_china(self, area, variate, update_time):
+        # 分段
+        pieces = [
+            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, &#39;label&#39;: &#39;&gt;10000&#39;, &#39;color&#39;: &#39;#8A0808&#39;},
+            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, &#39;label&#39;: &#39;1000-9999&#39;, &#39;color&#39;: &#39;#B40404&#39;},
+            {&quot;max&quot;: 999, &quot;min&quot;: 100, &#39;label&#39;: &#39;100-999&#39;, &#39;color&#39;: &#39;#DF0101&#39;},
+            {&quot;max&quot;: 99, &quot;min&quot;: 10, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: &#39;#F5A9A9&#39;},
+            {&quot;max&quot;: 9, &quot;min&quot;: 1, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: &#39;#F5A9A9&#39;},
+            {&quot;max&quot;: 0, &quot;min&quot;: 0, &#39;label&#39;: &#39;0&#39;, &#39;color&#39;: &#39;#FFFFFF&#39;},
+        ]
+        c = (
+            Map(init_opts=opts.InitOpts(width=&#39;1000px&#39;, height=&#39;880px&#39;))
+                # zip内置函数，实现数据对应
+                .add(&quot;累计确诊人数&quot;, [list(z) for z in zip(area, variate)], &quot;china&quot;)
+                .set_global_opts(
+                title_opts=opts.TitleOpts(title=&quot;中国疫情地图分布&quot;, subtitle=&#39;截至%s 中国疫情分布情况&#39; % (update_time),
+                                          pos_left=&#39;center&#39;,pos_top=&#39;30px&#39;),
+                visualmap_opts=opts.VisualMapOpts(max_=200, is_piecewise=True, pieces=pieces),
+            )
+                .render(&quot;中国疫情地图.html&quot;)
+        )
+        print(&quot;生成中国疫情地图成功&quot;)
+</code></pre>
+<p><strong>main.py</strong></p>
+<pre><code class="python">import data_more
+import data_get
+
+
+datas = data_get.Get_data()
+# 爬取数据并保存
+datas.get_data()
+# 更新时间
+update_time = datas.get_time()
+# 解析数据
+datas.parse_data()
+
+# 生成中国疫情地图
+data_more.china_map(update_time)
+# 生成城市疫情地图
+data_more.province_map(update_time)</code></pre>
+
         </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.4/img/me/dm1.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2019/12/12/java贪吃蛇-实训周/">
-    java贪吃蛇</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2019-12-12</div>
-    <p>
-    java实训周小游戏</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2019/12/12/java贪吃蛇-实训周/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_ljQAAt5u727.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_ljQAAt5u727.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                python爬取图片（二）-海贼王高清壁纸</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/04/24/python爬取百度疫情数据(二) - wordcloud词云/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/me/dm6.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                python爬取百度疫情数据(二) - wordcloud词云</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "UlUr0C7tHlxcJfwTxebJedid-MdYXbMMI",
+        appKey: "4FOSooUGgGq09sRYAapcjQih",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
