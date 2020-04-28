@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">HeZ</title>
+  <title itemprop="name">python爬取数据之多线程 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -378,300 +378,194 @@
 
 </header>
 
-      <div class="blank" style="padding-top: 0px;"></div>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python爬取数据之多线程</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.github.io">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-28<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
-  
-  <div class="notice" style="margin-top:60px">
-    <i class="iconfont icon-notification">
-    </i>
-    <div class="notice-content">种自己的花，爱自己的宇宙</div>
-  </div>
-  
-  <div class="top-feature-row">
-  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
-  <i class="fa fa-anchor" aria-hidden="true">
-  </i>
-  START:DASH!!</h1>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/theme-sakura/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/startdash/sakura.md.png">
-        </div>
-        <div class="info">
-          <h3>Sakura</h3>
-          <p>本站 hexo 主题</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="http://space.bilibili.com/23467482" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/startdash/bilibili.jpg">
-        </div>
-        <div class="info">
-          <h3>Bilibili</h3>
-          <p>博主的b站视频</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="top-feature-v2">
-    <div class="the-feature square from_left_and_right">
-      <a href="/" target="_blank">
-        <div class="img">
-          <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/startdash/wangshiwu.jpg">
-        </div>
-        <div class="info">
-          <h3>许不悔的万事屋</h3>
-          <p>技术服务</p>
-        </div>
-      </a>
-    </div>
-  </div>
-  
-</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
-      <i class="fa fa-envira" aria-hidden="true"></i>
-      Discovery</h1>
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这一篇我们利用多线程从<a href="https://maoyan.com/board/4?offset=0" target="_blank" rel="noopener">猫眼电影Top100</a>爬取数据。</p>
+<p>多线程可以大大的提高我们爬虫的爬取速度，类似的提速方式有</p>
+<ul>
+<li>多线程</li>
+<li>进程</li>
+<li>协程</li>
+</ul>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h6 id="需要引入的包"><a href="#需要引入的包" class="headerlink" title="需要引入的包"></a>需要引入的包</h6><p><code>import requests</code><br><code>import threading</code><br><code>import parsel</code><br><code>import time</code><br><code>import openpyxl</code></p>
+<h6 id="网页分析"><a href="#网页分析" class="headerlink" title="网页分析"></a>网页分析</h6><p>其中每一部电影的信息都存在<strong>dd</strong>标签内，循环遍历dd标签可以得到对应电影的具体信息。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/blog/thread.png" alt="img"></p>
+<p>控制分页的参数是offset。</p>
+<p>其中第一页是offset=0，第二页是offset=10……第10页是offset=90。</p>
+<blockquote>
+<p> <strong>for i in range(0, 100, 10)</strong></p>
+</blockquote>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="python">import requests
+import threading
+import parsel
+import time
+import openpyxl
+
+
+def url_get(ws, page):
+    url = &#39;https://maoyan.com/board/4?offset=&#39; + str(page)
+    headers = {
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&quot;
+    }
+    response = requests.get(url, headers=headers)
+
+    sel = parsel.Selector(response.text)
+    # css选择器 先取dd标签
+    dds = sel.css(&#39;dd&#39;)
+    # 遍历dd标签
+    for dd in dds:
+        name_sel = dd.css(&#39;p.name a::text&#39;).getall()[0]
+        # strip去空格
+        star_sel = dd.css(&#39;p.star::text&#39;).getall()[0].strip()
+        time_sel = dd.css(&#39;p.releasetime::text&#39;).getall()[0]
+        # 拼接
+        score_sel = &#39;&#39;.join(dd.css(&#39;p.score i::text&#39;).getall())
+        data = [
+            name_sel,
+            star_sel,
+            time_sel,
+            score_sel
+        ]
+        ws.append(data)
+
+
+def url_start():
+    start_time = time.time()
+    # 创建工作簿
+    wb = openpyxl.Workbook()
+    # 创建工作表
+    ws = wb.active
+    ws.title = &#39;猫眼数据&#39;
+    # 表头
+    ws.append([&#39;电影&#39;, &#39;主演&#39;, &#39;上映时间&#39;, &#39;评分&#39;])
+    for i in range(0, 100, 10):
+        # 多线程，同时请求十页
+        # target目标方法 args元祖参数 如果一个元祖需要在后边加 ,
+        threading.Thread(target=url_get, args=(ws, i)).start()
+        # url_get(ws, i)
+    # 线程数11 因为有一个主线程
+    print(&#39;线程数{}&#39;.format(len(threading.enumerate())))
+    # 计算真实消耗时间
+    while len(threading.enumerate()) &gt; 1:
+        pass
+    wb.save(&#39;cat_data.xlsx&#39;)
+    end_time = time.time()
+    print(&quot;消耗时间:%s秒&quot; % (end_time - start_time))
+
+
+url_start()</code></pre>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+          
+            <div class="post-nepre full next">
+          
+            <a href="/2020/04/27/正则表达式/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                正则表达式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "UlUr0C7tHlxcJfwTxebJedid-MdYXbMMI",
+        appKey: "4FOSooUGgGq09sRYAapcjQih",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-  <div class="post-thumb">
-    <a href="/2019/08/02/js上传并显示图片/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.3/img/me/dm4.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-8-2 13:08</div>
-      <a href="/2019/08/02/js上传并显示图片/" class="post-title">
-        <h3>js上传并显示图片</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/web/">web<em>·</em></a>
-          
-            <a href="/tags/javaScript/">javaScript<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>js+ajax上传图片并显示</p>
-        <div class="post-bottom">
-          <a href="/2019/08/02/js上传并显示图片/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
+            </h3>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/24/超简单！js使用echarts/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2_WggACTrn180.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-24 12:07</div>
-      <a href="/2019/07/24/超简单！js使用echarts/" class="post-title">
-        <h3>超简单！js使用echarts</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/web/">web<em>·</em></a>
-          
-            <a href="/tags/javaScript/">javaScript<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>js引入echarts.js实现数据可视化</p>
-        <div class="post-bottom">
-          <a href="/2019/07/24/超简单！js使用echarts/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_CK4AEUZQ546.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-22 13:07</div>
-      <a href="/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/" class="post-title">
-        <h3>Hexo+Valine+Leancloud快速搭建评论系统</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/web/">web<em>·</em></a>
-          
-            <a href="/tags/hexo/">hexo<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>快速高效搭建blog评论系统</p>
-        <div class="post-bottom">
-          <a href="/2019/07/22/Hexo-Valine-Leancloud快速搭建评论系统/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/21/html运行exe文件，兼容浏览器/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.9/img/banner/miku.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-21 10:07</div>
-      <a href="/2019/07/21/html运行exe文件，兼容浏览器/" class="post-title">
-        <h3>html运行exe文件，兼容浏览器</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/web/">web<em>·</em></a>
-          
-            <a href="/tags/html/">html<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/技术/">技术</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>利用注册表使网页打开本地exe程序</p>
-        <div class="post-bottom">
-          <a href="/2019/07/21/html运行exe文件，兼容浏览器/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-    
-<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="http://schema.org/BlogPosting">
-
-  <div class="post-thumb">
-    <a href="/2019/07/19/我来说点什么吧0.0/">
-      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.6/img/me/ali.jpg">
-    </a>
-  </div>
-  <div class="post-content-wrap">
-    <div class="post-content">
-      <div class="post-date">
-        <i class="iconfont icon-time">
-        </i>2019-7-19 16:07</div>
-      <a href="/2019/07/19/我来说点什么吧0.0/" class="post-title">
-        <h3>我来说点什么吧0.0</h3>
-      </a>
-      <div class="post-meta">
-        <span><i class="fa fa-tags"></i>
-        
-            <a href="/tags/介绍/">介绍<em>·</em></a>
-          
-            <a href="/tags/小记/">小记<em>·</em></a>
-          
-        </span>
-        <span>
-          <i class="iconfont icon-file"></i>
-          
-            <a href="/categories/随想/">随想</a>
-          
-        </span>
-      </div>
-      <div class="float-content">
-        <p>随便说说...</p>
-        <div class="post-bottom">
-          <a href="/2019/07/19/我来说点什么吧0.0/" class="button-normal">
-            <i class="iconfont icon-caidan"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</article>
-  
-
-
-    </main>
-      <!-- 首页默认取最最新文章集 -->
-    <!-- 
-      <nav class="navigator">
-        
-        <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-back"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-      </nav>
-     -->
-  </div>
-  
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">

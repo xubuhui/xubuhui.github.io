@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">HeZ</title>
+  <title itemprop="name">正则表达式 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(4).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(5).jpg.webp,https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cover/(6).jpg.webp,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.4/img/bg/dm5.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -254,13 +254,6 @@
                         </a>
                       </li>
                     
-                      <li>
-                        <a href="/categories/转载/">
-                          <i class="fa fa-book" aria-hidden="true"></i>
-                          转载
-                        </a>
-                      </li>
-                    
                   </ul>
                 
               </li>
@@ -274,13 +267,6 @@
                 </a>
                 
                   <ul class="sub-menu">
-                    
-                      <li>
-                        <a href="/tags/悦读/">
-                          <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
-                          书单
-                        </a>
-                      </li>
                     
                       <li>
                         <a href="/bangumi/">
@@ -396,6 +382,30 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      正则表达式</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.github.io">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -403,16 +413,92 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
-          <header class="entry-header">
-            <h1 class="entry-title"></h1>
-            <p class="entry-census">&nbsp;·&nbsp;2020-4-27&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
-
-            <hr>
-          </header>
-        
         <div class="entry-content">
-          <h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p><img src="../../themes/Sakura/source/images/blog/image-20200427205042898.png" alt="image-20200427205042898"></p>
-
+          <h2 id="re正则表达式"><a href="#re正则表达式" class="headerlink" title="re正则表达式"></a>re正则表达式</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+<li>匹配字符串</li>
+<li>从字符串中获取想要的部分</li>
+<li>对目标字符串进行替换</li>
+</ol>
+<h3 id="正则表达式的使用"><a href="#正则表达式的使用" class="headerlink" title="正则表达式的使用"></a>正则表达式的使用</h3><h5 id="computer-在python中使用，需要引入re模块"><a href="#computer-在python中使用，需要引入re模块" class="headerlink" title="::computer:在python中使用，需要引入re模块"></a>::computer:在python中使用，需要引入<strong>re</strong>模块</h5><blockquote>
+<p>import re</p>
+</blockquote>
+<h5 id="bookmark-tabs-匹配字符"><a href="#bookmark-tabs-匹配字符" class="headerlink" title=":bookmark_tabs:匹配字符"></a>:bookmark_tabs:匹配字符</h5><table>
+<thead>
+<tr>
+<th align="center"><strong>符号</strong></th>
+<th align="left"><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>\</strong></td>
+<td align="left">转义符，改变原来符号含义，后面会有演示</td>
+</tr>
+<tr>
+<td align="center"><strong>[ ]</strong></td>
+<td align="left">中括号用来创建一个字符集，第一个出现字符如果是^，表示反向匹配</td>
+</tr>
+</tbody></table>
+<h5 id="bookmark-tabs-预定义字符集"><a href="#bookmark-tabs-预定义字符集" class="headerlink" title=":bookmark_tabs:预定义字符集"></a>:bookmark_tabs:预定义字符集</h5><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>\d</strong></td>
+<td>匹配数字，如：[0-9]</td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td>与上面正好相反，匹配所有非数字字符。</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>空白字符，如：空格，\t\r\n\f\v等。</td>
+</tr>
+<tr>
+<td><strong>\S</strong></td>
+<td>非空白字符。</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>单词字符，如：大写A<del>Z，小写a</del>z，数字0~9。</td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td>非\w字符。</td>
+</tr>
+</tbody></table>
+<h5 id="bookmark-tabs-可选项与重复子模式"><a href="#bookmark-tabs-可选项与重复子模式" class="headerlink" title=":bookmark_tabs:可选项与重复子模式"></a>:bookmark_tabs:可选项与重复子模式</h5><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*****</td>
+<td>匹配前一个字符0次或无限次数。</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>匹配前一个字符1次或无限次数。</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>匹配前一个字符0次或1次。</td>
+</tr>
+<tr>
+<td><strong>{m}</strong></td>
+<td>匹配前一个字符m次。</td>
+</tr>
+<tr>
+<td><strong>{m,n}</strong></td>
+<td>匹配前一个字符m至n次。</td>
+</tr>
+</tbody></table>
+<h2 id="未完"><a href="#未完" class="headerlink" title="未完"></a>未完</h2>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -439,9 +525,26 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/04/28/python爬取数据之多线程/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                python爬取数据之多线程</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/" rel="next">
               <div class="background">
@@ -475,16 +578,16 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i></p>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->
@@ -688,13 +791,6 @@ $(document).ready(function() {
                 </a>
               </li>
             
-              <li>
-                <a href="/categories/转载/">
-                  <i class="fa fa-book" aria-hidden="true"></i>
-                  转载
-                </a>
-              </li>
-            
           </ul>
         
       </li>
@@ -708,13 +804,6 @@ $(document).ready(function() {
         </a>
         
           <ul class="sub-menu">
-            
-              <li>
-                <a href="/tags/悦读/">
-                  <i class="fa fa-th-list faa-bounce" aria-hidden="true"></i>
-                  书单
-                </a>
-              </li>
             
               <li>
                 <a href="/bangumi/">

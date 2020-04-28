@@ -931,7 +931,8 @@ html {
     box-sizing:inherit
 }
 body {
-    background:url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@1.9/img/themebg/little-monster.png);
+    /*background:url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@1.9/img/themebg/little-monster.png);*/
+    background:url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg);
     background-attachment:fixed;
     cursor:url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/cursor/normal.cur),auto
 }
