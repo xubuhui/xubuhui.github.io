@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,14 +407,18 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="echarts"><a href="#echarts" class="headerlink" title="echarts"></a>echarts</h2><p>Echarts的官网<a href="https://echarts.baidu.com/" target="_blank" rel="noopener">https://echarts.baidu.com/</a>,Echarts官网有很多demo可以供我们使用，这一点可以说是很良心了，不说废话了直接进入主题。</p>
+          <h2 id="echarts">echarts</h2>
+<p>Echarts的官网<a href="https://echarts.baidu.com/" target="_blank" rel="noopener">https://echarts.baidu.com/</a>,Echarts官网有很多demo可以供我们使用，这一点可以说是很良心了，不说废话了直接进入主题。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts2.png" alt="img"></p>
-<h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h2><p>首先在确定安装好node.js的前提下，在项目目录cmd命令行下输入</p>
+<h2 id="第一步">第一步</h2>
+<p>首先在确定安装好node.js的前提下，在项目目录cmd命令行下输入</p>
 <p><code>npm install echarts</code></p>
 <p>安装echarts依赖。</p>
-<h2 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h2><p>把图中所示的echart.js文件复制到和你的项目文件同级目录下再引入,当然你也可以直接引入，我主要是为了方便。</p>
+<h2 id="第二步">第二步</h2>
+<p>把图中所示的echart.js文件复制到和你的项目文件同级目录下再引入,当然你也可以直接引入，我主要是为了方便。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts1.png" alt="img"></p>
-<h2 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h2><p>新建html文件，输入代码</p>
+<h2 id="第三步">第三步</h2>
+<p>新建html文件，输入代码</p>
 <pre><code>&lt;body&gt;
 &lt;!--创建div容器--&gt;
 &lt;div id=&quot;chart&quot; style=&quot;width:600px; height: 400px;&quot;&gt;&lt;/div&gt;
@@ -432,11 +429,11 @@
     //指定图标的配置和数据
     var option = {
         title:{
-            text:&#39;ECharts 数据统计&#39;
+            text:'ECharts 数据统计'
         },
         tooltip:{},
         legend:{
-            data:[&#39;用户来源&#39;]
+            data:['用户来源']
         },
         xAxis:{
             data:[&quot;Android&quot;,&quot;IOS&quot;,&quot;PC&quot;,&quot;Ohter&quot;]
@@ -445,17 +442,19 @@
 
         },
         series:[{
-            name:&#39;访问量&#39;,
-            type:&#39;line&#39;,
+            name:'访问量',
+            type:'line',
             data:[500,200,360,100]
         }]
     };
     //初始化echarts实例
-    var myChart = echarts.init(document.getElementById(&#39;chart&#39;));
+    var myChart = echarts.init(document.getElementById('chart'));
 
     //使用制定的配置项和数据显示图表
     myChart.setOption(option);
-&lt;/script&gt;</code></pre><p><strong>效果图如下：</strong></p>
+&lt;/script&gt;
+</code></pre>
+<p><strong>效果图如下：</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.1/img/blog/echarts3.png" alt="img"></p>
 <p>一个简单的echarts图就生成了！</p>
 
@@ -731,13 +730,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -932,5 +924,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

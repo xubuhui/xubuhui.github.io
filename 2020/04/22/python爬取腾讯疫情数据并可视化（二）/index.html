@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,9 +407,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们需要爬取的是腾讯实时疫情的数据–<a href="https://news.qq.com/zt2020/page/feiyan.htm#/global" target="_blank" rel="noopener">腾讯实时疫情网址</a></p>
+          <h3 id="前言">前言</h3>
+<p>我们需要爬取的是腾讯实时疫情的数据–<a href="https://news.qq.com/zt2020/page/feiyan.htm#/global" target="_blank" rel="noopener">腾讯实时疫情网址</a></p>
 <p>这篇用pyecharts的南丁格尔(玫瑰图)实现数据可视化。</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>本篇需要pyecharts库，安装方式如下：</p>
+<h3 id="准备工作">准备工作</h3>
+<p>本篇需要pyecharts库，安装方式如下：</p>
 <p>例：安装方式-&gt;CMD命令行-&gt;安装requests</p>
 <blockquote>
 <p>pip install requests</p>
@@ -426,27 +421,28 @@
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/blog/yq2.png" alt="img"></p>
 <p>最终实现效果</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/blog/yq3.png" alt="img"></p>
-<h3 id="下面是具体代码实现"><a href="#下面是具体代码实现" class="headerlink" title="下面是具体代码实现"></a>下面是具体代码实现</h3><pre><code class="python">import pandas as pd
+<h3 id="下面是具体代码实现">下面是具体代码实现</h3>
+<pre><code class="language-python">import pandas as pd
 from pyecharts.charts import Pie
 from pyecharts import options as opts
 
 # 读入数据, nrows数据行数
-df = pd.read_csv(&#39;data.csv&#39;,nrows=30)
+df = pd.read_csv('data.csv',nrows=30)
 # 降序操作
-df.sort_values(by=&#39;确诊病例&#39;, ascending=False, inplace=True)
+df.sort_values(by='确诊病例', ascending=False, inplace=True)
 # 提取数据
-area = df[&#39;国家和地区&#39;].values.tolist()
-num = df[&#39;确诊病例&#39;].values.tolist()
+area = df['国家和地区'].values.tolist()
+num = df['确诊病例'].values.tolist()
 
 # 自定义颜色
-color_series = [  &#39;#D02C2A&#39;, &#39;#D44C2D&#39;, &#39;#F57A34&#39;, &#39;#FA8F2F&#39;, &#39;#D99D21&#39;,
-                &#39;#CF7B25&#39;, &#39;#CF7B25&#39;, &#39;#CF7B25&#39;,&#39;#FAE927&#39;, &#39;#E9E416&#39;, &#39;#C9DA36&#39;, &#39;#9ECB3C&#39;, &#39;#6DBC49&#39;,
-                &#39;#37B44E&#39;, &#39;#3DBA78&#39;, &#39;#14ADCF&#39;, &#39;#209AC9&#39;, &#39;#1E91CA&#39;,
-                &#39;#2C6BA0&#39;, &#39;#2B55A1&#39;, &#39;#2D3D8E&#39;, &#39;#44388E&#39;, &#39;#6A368B&#39;
-                 &#39;#7D3990&#39;, &#39;#A63F98&#39;, &#39;#C31C88&#39;, &#39;#D52178&#39;, &#39;#D5225B&#39;,
+color_series = [  '#D02C2A', '#D44C2D', '#F57A34', '#FA8F2F', '#D99D21',
+                '#CF7B25', '#CF7B25', '#CF7B25','#FAE927', '#E9E416', '#C9DA36', '#9ECB3C', '#6DBC49',
+                '#37B44E', '#3DBA78', '#14ADCF', '#209AC9', '#1E91CA',
+                '#2C6BA0', '#2B55A1', '#2D3D8E', '#44388E', '#6A368B'
+                 '#7D3990', '#A63F98', '#C31C88', '#D52178', '#D5225B',
               ]
 # 实例化Pie类
-pie1 = Pie(init_opts=opts.InitOpts(width=&#39;1350px&#39;, height=&#39;700px&#39;))
+pie1 = Pie(init_opts=opts.InitOpts(width='1350px', height='700px'))
 # 设置颜色
 pie1.set_colors(color_series)
 # 添加数据，设置饼图的半径，是否展示成南丁格尔图
@@ -456,7 +452,7 @@ pie1.add(&quot;&quot;, [(a,b) for a,b in zip(area, num)],
          rosetype=&quot;radius&quot;
          )
 # 设置全局配置项
-pie1.set_global_opts(title_opts=opts.TitleOpts(title=&#39;南丁格尔疫情图&#39;),
+pie1.set_global_opts(title_opts=opts.TitleOpts(title='南丁格尔疫情图'),
                      legend_opts=opts.LegendOpts(is_show=False),
                      )
 # 设置系列配置项
@@ -466,8 +462,9 @@ pie1.set_series_opts(label_opts=opts.LabelOpts(is_show=True, position=&quot;top&
                                                ),
                      )
 # 生成html文档
-pie1.render(&#39;南丁格尔疫情图.html&#39;)
-print(&quot;构建成功&quot;)</code></pre>
+pie1.render('南丁格尔疫情图.html')
+print(&quot;构建成功&quot;)
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -741,13 +738,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -942,5 +932,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

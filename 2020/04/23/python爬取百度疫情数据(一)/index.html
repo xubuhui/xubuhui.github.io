@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,18 +407,24 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>百度疫情和腾讯疫情数据数据爬取方式不同，腾讯疫情数据把数据放在数据包里，而百度则把数据包裹在script标签内。</p>
+          <h3 id="前言">前言</h3>
+<p>百度疫情和腾讯疫情数据数据爬取方式不同，腾讯疫情数据把数据放在数据包里，而百度则把数据包裹在script标签内。</p>
 <p><a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" rel="noopener">百度实时疫情网址</a></p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>编辑器还是推荐 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">PyCharm下载链接</a></p>
+<h3 id="准备工作">准备工作</h3>
+<p>编辑器还是推荐 <a href="https://www.jetbrains.com/pycharm/download/" target="_blank" rel="noopener">PyCharm下载链接</a></p>
 <p>本篇需要导入的python模块</p>
 <blockquote>
-<p>import json<br>import requests<br>from lxml import etree<br>import openpyxl </p>
+<p>import json<br>
+import requests<br>
+from lxml import etree<br>
+import openpyxl</p>
 </blockquote>
 <p>json —— 老朋友了，这个模块主要是解码编码，以及格式转换</p>
 <p>requests——灵活的爬虫库，requests请求的底层实现其实就是urllib3，不要再用urllib2做爬虫了，兄弟萌。</p>
 <p>etree——主要是为了从html源码中得到自己想要的内容。</p>
 <p>openpyxl——处理excel文件</p>
-<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>我感觉做爬虫最重要的还是数据来源的分析，因为每一个网站数据来源都有可能不一样，就像百度和腾讯做的疫情实时数据，不得不说，百度这一块做得确实比腾讯有过之而无不及。</p>
+<h3 id="抓包分析">抓包分析</h3>
+<p>我感觉做爬虫最重要的还是数据来源的分析，因为每一个网站数据来源都有可能不一样，就像百度和腾讯做的疫情实时数据，不得不说，百度这一块做得确实比腾讯有过之而无不及。</p>
 <p>首先进入网站，我一开始也是老三样，F12-&gt;Network-&gt;XHR，发现只有一个数据包，但是并没有我们想要的数据。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0/img/blog/baiduyq1.png" alt="img"></p>
 <p>然后准备从网页源码入手，复制一个数据查找后，发现数据被包裹在一个script标签内，然后准备先把script标签内的数据扒下来。</p>
@@ -454,59 +453,61 @@
 <p>现有确诊——curConfirm</p>
 <p>累计确诊增量——confirmedRelative</p>
 </blockquote>
-<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><pre><code class="python">import json
+<h3 id="具体代码实现">具体代码实现</h3>
+<pre><code class="language-python">import json
 import requests
 from lxml import etree
 import openpyxl
 
-url = &#39;https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&#39;
+url = 'https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1'
 response = requests.get(url)
 # print(response.text)
 # 生成html对象
 html = etree.HTML(response.text)
 # 获取列表
-r = html.xpath(&#39;//script[@type=&quot;application/json&quot;]/text()&#39;)
+r = html.xpath('//script[@type=&quot;application/json&quot;]/text()')
 # json.loads将字符串转换为python数据类型
 result = json.loads(r[0])
-# print(result[&#39;component&#39;][0][&#39;caseList&#39;])
+# print(result['component'][0]['caseList'])
 # 创建工作簿
 wb = openpyxl.Workbook()
 # 创建工作表
 ws = wb.active
-ws.title = &#39;国内疫情&#39;
+ws.title = '国内疫情'
 # 表头
-ws.append([&#39;省份&#39;,&#39;累计确诊&#39;,&#39;死亡&#39;,&#39;治愈&#39;,&#39;现有确诊&#39;,&#39;累计确诊增量&#39;])
+ws.append(['省份','累计确诊','死亡','治愈','现有确诊','累计确诊增量'])
 # 国内疫情数据
-result_in = result[&#39;component&#39;][0][&#39;caseList&#39;]
+result_in = result['component'][0]['caseList']
 for data_in in result_in:
-    temp_list = [data_in[&#39;area&#39;], data_in[&#39;confirmed&#39;],data_in[&#39;died&#39;],data_in[&#39;crued&#39;],data_in[&#39;curConfirm&#39;],
-               data_in[&#39;confirmedRelative&#39;]
+    temp_list = [data_in['area'], data_in['confirmed'],data_in['died'],data_in['crued'],data_in['curConfirm'],
+               data_in['confirmedRelative']
                  ]
     # 判断是否为空 如果空数据则赋值 0，0是字符串
     for i in range(len(temp_list)):
-        if temp_list[i] == &#39;&#39;:
-            temp_list[i] = &#39;0&#39;
+        if temp_list[i] == '':
+            temp_list[i] = '0'
     ws.append(temp_list)
 # 国外疫情数据
-result_out = result[&#39;component&#39;][0][&#39;globalList&#39;];
+result_out = result['component'][0]['globalList'];
 # print(result_out)
 for data_out in result_out:
     # 表名
-    sheet_title = data_out[&#39;area&#39;]
+    sheet_title = data_out['area']
     # 创建新的工作表
     ws_out = wb.create_sheet(sheet_title)
-    ws_out.append([&#39;国家&#39;,&#39;累计确诊&#39;,&#39;死亡&#39;,&#39;治愈&#39;,&#39;现有确诊&#39;,&#39;累计确诊增量&#39;])
+    ws_out.append(['国家','累计确诊','死亡','治愈','现有确诊','累计确诊增量'])
     # subList 具体国家疫情数据
-    for sub_out in data_out[&#39;subList&#39;]:
-        sub_list = [sub_out[&#39;country&#39;], sub_out[&#39;confirmed&#39;],sub_out[&#39;died&#39;],sub_out[&#39;crued&#39;],sub_out[&#39;curConfirm&#39;],
-               sub_out[&#39;confirmedRelative&#39;]]
+    for sub_out in data_out['subList']:
+        sub_list = [sub_out['country'], sub_out['confirmed'],sub_out['died'],sub_out['crued'],sub_out['curConfirm'],
+               sub_out['confirmedRelative']]
         # 防止数据为空 如果空则 赋值0
         for i in range(len(sub_list)):
-            if sub_list[i] == &#39;&#39;:
-                sub_list[i] = &#39;0&#39;
+            if sub_list[i] == '':
+                sub_list[i] = '0'
         ws_out.append(sub_list)
-wb.save(&#39;./data.xlsx&#39;)
+wb.save('./data.xlsx')
 print(&quot;Ok&quot;)
+
 </code></pre>
 
         </div>
@@ -781,13 +782,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -982,5 +976,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

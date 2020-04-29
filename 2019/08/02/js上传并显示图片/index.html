@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,7 +407,8 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="首先看下upload-html文件"><a href="#首先看下upload-html文件" class="headerlink" title="首先看下upload.html文件"></a>首先看下upload.html文件</h3><pre><code>&lt;!DOCTYPE html&gt;
+          <h3 id="首先看下upload-html文件">首先看下upload.html文件</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -444,7 +438,7 @@
             console.log(file);
             var file = document.getElementById(&quot;profile_pic&quot;).files[0];
             var formData = new FormData();
-            formData.append(&#39;file&#39;, file); //为ajax的data做准备
+            formData.append('file', file); //为ajax的data做准备
             var reader = new FileReader();
             reader.onload = function () {
                 $(&quot;#imgupload&quot;).attr(&quot;src&quot;, this.result);
@@ -472,7 +466,10 @@
 
     });
 &lt;/script&gt;
-&lt;/html&gt;</code></pre><h3 id="其次看下up-css文件"><a href="#其次看下up-css文件" class="headerlink" title="其次看下up.css文件"></a>其次看下up.css文件</h3><pre><code>body {background-image:url(&#39;../img/point.png&#39;);}
+&lt;/html&gt;
+</code></pre>
+<h3 id="其次看下up-css文件">其次看下up.css文件</h3>
+<pre><code>body {background-image:url('../img/point.png');}
 .divcss {
     margin: 0 auto;
     width: 400px;
@@ -510,7 +507,9 @@
     border-color: #78C3F3;
     color: #004974;
     text-decoration: none;
-}</code></pre><p>其中有几处用到了图片背景，这个你可以根据喜好选择图片，当然也可以不用。</p>
+}
+</code></pre>
+<p>其中有几处用到了图片背景，这个你可以根据喜好选择图片，当然也可以不用。</p>
 <p>我的目录结构是这样子的：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@2.2/img/blog/upimg.png" alt="img"></p>
 <p>最终的效果图是这样的：</p>
@@ -789,13 +788,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -990,5 +982,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

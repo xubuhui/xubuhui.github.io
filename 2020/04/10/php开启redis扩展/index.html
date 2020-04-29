@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,23 +407,31 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="1-安装redis"><a href="#1-安装redis" class="headerlink" title="1.安装redis"></a>1.安装redis</h2><p> <a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">github下载链接</a></p>
-<h2 id="2-测试redis"><a href="#2-测试redis" class="headerlink" title="2.测试redis"></a>2.测试redis</h2><p>进入redis目录，双击运行 <strong>redis-server.exe</strong> 文件。</p>
+          <h2 id="1-安装redis">1.安装redis</h2>
+<p><a href="https://github.com/MSOpenTech/redis/releases" target="_blank" rel="noopener">github下载链接</a></p>
+<h2 id="2-测试redis">2.测试redis</h2>
+<p>进入redis目录，双击运行 <strong>redis-server.exe</strong> 文件。</p>
 <p>或者在redis安装目录，运行cmd命令行，执行</p>
-<p>redis-server.exe redis.windows.conf<br><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3h1YnVodWkvbXljZG5AMi42L2ltZy9ibG9nL3JlZGlzMS5wbmc?x-oss-process=image/format,png" alt="在这里插入图片描述"></p>
-<h2 id="3-安装redis扩展"><a href="#3-安装redis扩展" class="headerlink" title="3.安装redis扩展"></a>3.安装redis扩展</h2><p><a href="https://pecl.php.net/package/redis" target="_blank" rel="noopener">redis扩展下载链接</a></p>
+<p>redis-server.exe redis.windows.conf<br>
+<img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3h1YnVodWkvbXljZG5AMi42L2ltZy9ibG9nL3JlZGlzMS5wbmc?x-oss-process=image/format,png" alt="在这里插入图片描述"></p>
+<h2 id="3-安装redis扩展">3.安装redis扩展</h2>
+<p><a href="https://pecl.php.net/package/redis" target="_blank" rel="noopener">redis扩展下载链接</a></p>
 <p>然后根据phpinfo()的信息选择合适的redis扩展压缩包。</p>
 <p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9jZG4uanNkZWxpdnIubmV0L2doL3h1YnVodWkvbXljZG5AMi42L2ltZy9ibG9nL3JlZGlzMi5wbmc?x-oss-process=image/format,png" alt="在这里插入图片描述"></p>
 <p>注意php版本号以及 Architecture ：CPU架构</p>
-<h2 id="4-将redis扩展包的php-redis-dll和php-redis-pdb两个文件放在php的ext文件夹"><a href="#4-将redis扩展包的php-redis-dll和php-redis-pdb两个文件放在php的ext文件夹" class="headerlink" title="4.将redis扩展包的php_redis.dll和php_redis.pdb两个文件放在php的ext文件夹"></a>4.将redis扩展包的php_redis.dll和php_redis.pdb两个文件放在php的ext文件夹</h2><h2 id="5-打开php-ini文件，打开扩展"><a href="#5-打开php-ini文件，打开扩展" class="headerlink" title="5.打开php.ini文件，打开扩展"></a>5.打开php.ini文件，打开扩展</h2><blockquote>
+<h2 id="4-将redis扩展包的php-redis-dll和php-redis-pdb两个文件放在php的ext文件夹">4.将redis扩展包的php_redis.dll和php_redis.pdb两个文件放在php的ext文件夹</h2>
+<h2 id="5-打开php-ini文件，打开扩展">5.打开php.ini文件，打开扩展</h2>
+<blockquote>
 <p>extension=php_redis.dll</p>
 </blockquote>
-<h2 id="6-php连接并测试redis数据库-先开启redis服务-redis-server"><a href="#6-php连接并测试redis数据库-先开启redis服务-redis-server" class="headerlink" title="6.php连接并测试redis数据库(先开启redis服务-redis-server)"></a>6.php连接并测试redis数据库(先开启redis服务-redis-server)</h2><p>首先新建test.php</p>
-<pre><code class="php">&lt;?php
+<h2 id="6-php连接并测试redis数据库-先开启redis服务-redis-server">6.php连接并测试redis数据库(先开启redis服务-redis-server)</h2>
+<p>首先新建test.php</p>
+<pre><code class="language-php">&lt;?php
      $redis = new Redis();
-     $redis-&gt;connect(&#39;127.0.0.1&#39;,6379);
-     $redis-&gt;set(&#39;name&#39;,&#39;HeZ&#39;);
-     echo $redis-&gt;get(&#39;name&#39;);</code></pre>
+     $redis-&gt;connect('127.0.0.1',6379);
+     $redis-&gt;set('name','HeZ');
+     echo $redis-&gt;get('name');
+</code></pre>
 <p>访问test.php,输出HeZ,测试通过。</p>
 
         </div>
@@ -705,13 +706,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -906,5 +900,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

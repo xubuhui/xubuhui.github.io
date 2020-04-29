@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,38 +407,47 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="re正则表达式"><a href="#re正则表达式" class="headerlink" title="re正则表达式"></a>re正则表达式</h2><h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><ol>
+          <h1>re正则表达式</h1>
+<h2 id="作用">作用</h2>
+<ol>
 <li>匹配字符串</li>
 <li>从字符串中获取想要的部分</li>
 <li>对目标字符串进行替换</li>
 </ol>
-<h3 id="正则表达式的使用"><a href="#正则表达式的使用" class="headerlink" title="正则表达式的使用"></a>正则表达式的使用</h3><h5 id="computer-在python中使用，需要引入re模块"><a href="#computer-在python中使用，需要引入re模块" class="headerlink" title="::computer:在python中使用，需要引入re模块"></a>::computer:在python中使用，需要引入<strong>re</strong>模块</h5><blockquote>
+<h2 id="正则表达式的使用">正则表达式的使用</h2>
+<h4 id="🍺在python中使用，需要引入re模块">🍺在python中使用，需要引入<strong>re</strong>模块</h4>
+<blockquote>
 <p>import re</p>
 </blockquote>
-<h5 id="bookmark-tabs-匹配字符"><a href="#bookmark-tabs-匹配字符" class="headerlink" title=":bookmark_tabs:匹配字符"></a>:bookmark_tabs:匹配字符</h5><table>
+<h4 id="😇匹配字符">😇匹配字符</h4>
+<table>
 <thead>
 <tr>
-<th align="center"><strong>符号</strong></th>
-<th align="left"><strong>作用</strong></th>
+<th style="text-align:center"><strong>符号</strong></th>
+<th style="text-align:left"><strong>作用</strong></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"><strong>\</strong></td>
-<td align="left">转义符，改变原来符号含义，后面会有演示</td>
+<tbody>
+<tr>
+<td style="text-align:center">*<em>*</em></td>
+<td style="text-align:left">转义符，改变原来符号含义，后面会有演示</td>
 </tr>
 <tr>
-<td align="center"><strong>[ ]</strong></td>
-<td align="left">中括号用来创建一个字符集，第一个出现字符如果是^，表示反向匹配</td>
+<td style="text-align:center"><strong>[ ]</strong></td>
+<td style="text-align:left">中括号用来创建一个字符集，第一个出现字符如果是^，表示反向匹配</td>
 </tr>
-</tbody></table>
-<h5 id="bookmark-tabs-预定义字符集"><a href="#bookmark-tabs-预定义字符集" class="headerlink" title=":bookmark_tabs:预定义字符集"></a>:bookmark_tabs:预定义字符集</h5><table>
+</tbody>
+</table>
+<h4 id="😀预定义字符集">😀预定义字符集</h4>
+<table>
 <thead>
 <tr>
 <th>符号</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><strong>\d</strong></td>
 <td>匹配数字，如：[0-9]</td>
 </tr>
@@ -463,21 +465,24 @@
 </tr>
 <tr>
 <td><strong>\w</strong></td>
-<td>单词字符，如：大写A<del>Z，小写a</del>z，数字0~9。</td>
+<td>单词字符，如：大写A~Z，小写a~z，数字0~9。</td>
 </tr>
 <tr>
 <td><strong>\W</strong></td>
 <td>非\w字符。</td>
 </tr>
-</tbody></table>
-<h5 id="bookmark-tabs-可选项与重复子模式"><a href="#bookmark-tabs-可选项与重复子模式" class="headerlink" title=":bookmark_tabs:可选项与重复子模式"></a>:bookmark_tabs:可选项与重复子模式</h5><table>
+</tbody>
+</table>
+<h4 id="😃可选项与重复子模式">😃可选项与重复子模式</h4>
+<table>
 <thead>
 <tr>
 <th>符号</th>
 <th>作用</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>*****</td>
 <td>匹配前一个字符0次或无限次数。</td>
 </tr>
@@ -497,8 +502,10 @@
 <td><strong>{m,n}</strong></td>
 <td>匹配前一个字符m至n次。</td>
 </tr>
-</tbody></table>
-<h2 id="未完"><a href="#未完" class="headerlink" title="未完"></a>未完</h2>
+</tbody>
+</table>
+<h2 id="未完">未完</h2>
+
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
@@ -771,13 +778,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -972,5 +972,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

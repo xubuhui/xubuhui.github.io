@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,9 +407,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>数据用的是上一篇我们从百度实时疫情数据扒下来的，具体数据获取方式见本blog上一篇。</p>
+          <h3 id="前言">前言</h3>
+<p>数据用的是上一篇我们从百度实时疫情数据扒下来的，具体数据获取方式见本blog上一篇。</p>
 <p>我们主要获取中国和世界的累计确诊人数分别制作词云,词越大表示确诊人数越多.</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>代码主要用到两个模块:</p>
+<h3 id="准备工作">准备工作</h3>
+<p>代码主要用到两个模块:</p>
 <blockquote>
 <ol>
 <li>openpyxl</li>
@@ -437,7 +432,8 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>width</td>
 <td>指定词云对象生成图片的宽度,默认400像素</td>
 </tr>
@@ -473,24 +469,27 @@
 <td>background_color</td>
 <td>指定词云图片的背景颜色，默认为黑色</td>
 </tr>
-</tbody></table>
-<h3 id="实现效果图"><a href="#实现效果图" class="headerlink" title="实现效果图"></a>实现效果图</h3><p><strong>中国疫情词云</strong></p>
+</tbody>
+</table>
+<h3 id="实现效果图">实现效果图</h3>
+<p><strong>中国疫情词云</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.1/img/blog/baiduyq5.png" alt="img"></p>
 <p><strong>世界疫情词云</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.1/img/blog/baiduyq6.png" alt="img"></p>
-<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><pre><code class="python">import openpyxl
+<h3 id="具体代码实现">具体代码实现</h3>
+<pre><code class="language-python">import openpyxl
 from wordcloud import WordCloud
 
 # 读取数据
-wb = openpyxl.load_workbook(&#39;data.xlsx&#39;)
+wb = openpyxl.load_workbook('data.xlsx')
 # 获取工作表
-ws =wb[&#39;国内疫情&#39;]
+ws =wb['国内疫情']
 
 # 国内疫情数据
 frequency_in = {}
 for row in ws.values:
     # 去除表头
-    if row[0] == &#39;省份&#39;:
+    if row[0] == '省份':
         pass
     else:
         # 将省份和累计确诊数关联 float转换为浮点型
@@ -501,10 +500,10 @@ frequency_out = {}
 # 获取表名
 sheet_name = wb.sheetnames
 for each in sheet_name:
-    if &#39;洲&#39; in each:
+    if '洲' in each:
         ws = wb[each]
         for row in ws.values:
-            if row[0] ==&#39;国家&#39;:
+            if row[0] =='国家':
                 pass
             else:
                 # 写入字典
@@ -514,17 +513,18 @@ for each in sheet_name:
 # 创建生成词云方法
 def generate_pic(frequency, name):
     # font_path 字体路径 解决不显示中文
-    wordcloud = WordCloud(font_path=&#39;msyh.ttc&#39;,
+    wordcloud = WordCloud(font_path='msyh.ttc',
                           width=1920,
                           height=1080)
     # 根据确诊病例生成词云
     wordcloud.generate_from_frequencies(frequency)
-    wordcloud.to_file(&#39;%s.png&#39;%(name))
+    wordcloud.to_file('%s.png'%(name))
     print(&quot;ok!&quot;)
 
 
 generate_pic(frequency_in, &quot;国内疫情词云&quot;)
 generate_pic(frequency_out, &quot;世界疫情词云&quot;)
+
 
 </code></pre>
 
@@ -800,13 +800,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -1001,5 +994,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,9 +407,11 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>我们需要爬取的是腾讯实时疫情的数据–<a href="https://news.qq.com/zt2020/page/feiyan.htm#/global" target="_blank" rel="noopener">腾讯实时疫情网址</a></p>
+          <h3 id="前言">前言</h3>
+<p>我们需要爬取的是腾讯实时疫情的数据–<a href="https://news.qq.com/zt2020/page/feiyan.htm#/global" target="_blank" rel="noopener">腾讯实时疫情网址</a></p>
 <p>这里准备用两篇文章实现python爬取疫情数据，并结合pyecharts的南丁格尔(玫瑰图)实现数据可视化。</p>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>本篇需要用到三个python库, 请自行安装</p>
+<h3 id="准备工作">准备工作</h3>
+<p>本篇需要用到三个python库, 请自行安装</p>
 <ul>
 <li><strong>requests</strong></li>
 <li><strong>pandas</strong></li>
@@ -426,29 +421,32 @@
 <blockquote>
 <p>pip install requests</p>
 </blockquote>
-<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>我用的是谷歌浏览器，进入腾讯实时疫情的网址，然后F12-&gt;Network-&gt;XHR，重新刷新下页面发现</p>
+<h3 id="抓包分析">抓包分析</h3>
+<p>我用的是谷歌浏览器，进入腾讯实时疫情的网址，然后F12-&gt;Network-&gt;XHR，重新刷新下页面发现</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.8/img/blog/yq1.png" alt="img"></p>
 <p>确定这就是数据包。</p>
-<h3 id="下面是具体代码实现"><a href="#下面是具体代码实现" class="headerlink" title="下面是具体代码实现"></a>下面是具体代码实现</h3><pre><code class="python">import requests
+<h3 id="下面是具体代码实现">下面是具体代码实现</h3>
+<pre><code class="language-python">import requests
 import json
 import pandas as pd
 
 # 分析抓包
-url = &#39;https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist&#39;
+url = 'https://api.inews.qq.com/newsqa/v1/automation/foreign/country/ranklist'
 response = requests.get(url)
 content = json.loads(response.text)  # json.loads 将json格式数据转换为字典
 # print(content)
-df = pd.DataFrame(columns=[&#39;国家和地区&#39;,&#39;确诊病例&#39;,&#39;死亡病例&#39;,&#39;治愈病例&#39;])
+df = pd.DataFrame(columns=['国家和地区','确诊病例','死亡病例','治愈病例'])
 # 字典类型读取到DataFrame
-for i in range(len(content[&#39;data&#39;])):
+for i in range(len(content['data'])):
         df.loc[i+1] = [
-            content[&#39;data&#39;][i][&#39;name&#39;],
-            content[&#39;data&#39;][i][&#39;confirm&#39;],
-            content[&#39;data&#39;][i][&#39;dead&#39;],
-            content[&#39;data&#39;][i][&#39;heal&#39;]]
+            content['data'][i]['name'],
+            content['data'][i]['confirm'],
+            content['data'][i]['dead'],
+            content['data'][i]['heal']]
 # 保存为xlsx格式文件
-df.to_excel(&#39;data.xlsx&#39;,index=0, encoding=&#39;utf-8&#39;)
-print(&#39;爬取完毕&#39;)</code></pre>
+df.to_excel('data.xlsx',index=0, encoding='utf-8')
+print('爬取完毕')
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -722,13 +720,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -923,5 +914,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

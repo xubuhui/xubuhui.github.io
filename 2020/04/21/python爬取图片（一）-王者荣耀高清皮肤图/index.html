@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,21 +407,25 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="关于爬虫的一些思路"><a href="#关于爬虫的一些思路" class="headerlink" title="关于爬虫的一些思路"></a>关于爬虫的一些思路</h3><p>首先我们打开王者荣耀官网，进入英雄资料界面</p>
+          <h3 id="关于爬虫的一些思路">关于爬虫的一些思路</h3>
+<p>首先我们打开王者荣耀官网，进入英雄资料界面</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.7/img/blog/wz1.png" alt="img"></p>
-<p>python爬取腾讯疫情数据并可视化（二）<br>进入一个英雄的具体介绍页面</p>
-<p>然后f12，打开浏览器调试窗口，首先找到皮肤图片的url<br><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.7/img/blog/wz3.png" alt="img"></p>
+<p>python爬取腾讯疫情数据并可视化（二）<br>
+进入一个英雄的具体介绍页面</p>
+<p>然后f12，打开浏览器调试窗口，首先找到皮肤图片的url<br>
+<img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.7/img/blog/wz3.png" alt="img"></p>
 <p>分析提供图片的数据包</p>
 <p>NetWork-&gt;XHR</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@2.7/img/blog/wz4.png" alt="img"></p>
-<h3 id="下面是具体代码实现"><a href="#下面是具体代码实现" class="headerlink" title="下面是具体代码实现"></a>下面是具体代码实现</h3><pre><code class="python"># 抓取王者荣耀皮肤
+<h3 id="下面是具体代码实现">下面是具体代码实现</h3>
+<pre><code class="language-python"># 抓取王者荣耀皮肤
 import requests
 import pprint
 import time
 # 程序开始时间
 start_time = time.time()
 # 1.分析目标网页，确定爬取的url路径
-url = &#39;https://pvp.qq.com/web201605/js/herolist.json&#39;
+url = 'https://pvp.qq.com/web201605/js/herolist.json'
 # 2.发送请求 --requests 模拟浏览器发送请求，获取相应数据
 response = requests.get(url)
 data = response.json()
@@ -437,27 +434,28 @@ data = response.json()
 
 # 3.解析数据 --json模块:把json字符串转化成python可交互的数据类型
 for data1 in data:
-    cname = data1[&#39;cname&#39;]  # 英雄名
-    ename = data1[&#39;ename&#39;]  # 英雄ID
+    cname = data1['cname']  # 英雄名
+    ename = data1['ename']  # 英雄ID
     try:
-        skin_name = data1[&#39;skin_name&#39;].split(&#39;|&#39;)  # 皮肤名称
+        skin_name = data1['skin_name'].split('|')  # 皮肤名称
     except Exception as e:
         print(e)
     # 构建皮肤数量循环
     for skin_num in range(1, len(skin_name)+1):
         # 拼接图片url
-        # &#39;http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/&#39;+英雄ID值+&#39;/&#39;+英雄ID值+&#39;-bigskin-&#39;+皮肤序号+&#39;.jpg&#39;
-        skin_url = &#39;http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/&#39;+str(ename)+&#39;/&#39;+str(ename)+&#39;-bigskin-&#39;+str(skin_num)+&#39;.jpg&#39;
+        # 'http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/'+英雄ID值+'/'+英雄ID值+'-bigskin-'+皮肤序号+'.jpg'
+        skin_url = 'http://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/'+str(ename)+'/'+str(ename)+'-bigskin-'+str(skin_num)+'.jpg'
         img_data = requests.get(skin_url).content  # 二进制数据提取
         # 4.保存数据 --保存在目标文件夹
-        with open(&#39;img\\&#39;+cname+&#39;-&#39;+skin_name[skin_num-1]+&#39;.jpg&#39;,&#39;wb&#39;) as f:
-                print(&#39;正在下载图片：&#39;, cname+&#39;-&#39;+skin_name[skin_num-1])
+        with open('img\\'+cname+'-'+skin_name[skin_num-1]+'.jpg','wb') as f:
+                print('正在下载图片：', cname+'-'+skin_name[skin_num-1])
                 f.write(img_data)
 f.close()
 # 程序结束时间
 end_time = time.time()
 # 打印程序运行花费时间
-print(&#39;花费时间：&#39;,end_time-start_time)</code></pre>
+print('花费时间：',end_time-start_time)
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -731,13 +729,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -932,5 +923,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

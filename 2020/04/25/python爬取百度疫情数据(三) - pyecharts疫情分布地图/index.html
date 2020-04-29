@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,41 +407,47 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这一篇综合从<a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" rel="noopener">百度实时疫情网址</a>爬取数据并用pyecharts显示疫情地图分布。</p>
+          <h3 id="前言">前言</h3>
+<p>这一篇综合从<a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank" rel="noopener">百度实时疫情网址</a>爬取数据并用pyecharts显示疫情地图分布。</p>
 <p>其中地图分为具体省份疫情地图和中国总体疫情地图。</p>
 <p>每一个省份对应一个html地图。</p>
 <p><a href="http://gallery.pyecharts.org/#/Map/" target="_blank" rel="noopener">pyecharts map模块链接</a></p>
-<h3 id="实现思路是"><a href="#实现思路是" class="headerlink" title="实现思路是"></a>实现思路是</h3><blockquote>
+<h3 id="实现思路是">实现思路是</h3>
+<blockquote>
 <ol>
 <li>获取数据</li>
 <li>保存为html.txt文件</li>
 <li>解析html.txt，获取需要的数据，并保存为data.json</li>
 <li>分别创建省份疫情地图和中国疫情的方法，填充数据</li>
-<li>运行main.py</li>
+<li><a href="http://xn--main-k55ll68a.py" target="_blank" rel="noopener">运行main.py</a></li>
 </ol>
 </blockquote>
-<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>在map_draw.py中，其中具体省份疫情地图是用的pyecharts官网<a href="http://gallery.pyecharts.org/#/Map/map_guangdong" target="_blank" rel="noopener">广东地图实例</a>，其中有一个参数<strong>Faker.guangdong_city</strong>，我们把demo复制到pycharm   <strong>ctrl+鼠标左键</strong> 进入这个参数后，</p>
+<h3 id="遇到的问题">遇到的问题</h3>
+<p>在map_draw.py中，其中具体省份疫情地图是用的pyecharts官网<a href="http://gallery.pyecharts.org/#/Map/map_guangdong" target="_blank" rel="noopener">广东地图实例</a>，其中有一个参数<strong>Faker.guangdong_city</strong>，我们把demo复制到pycharm   <strong>ctrl+鼠标左键</strong> 进入这个参数后，</p>
 <p>发现这个参数的数据是这样的：</p>
 <blockquote>
 <p>guangdong_city = [“汕头市”, “汕尾市”, “揭阳市”, “阳江市”, “肇庆市”, “广州市”, “惠州市”]</p>
 </blockquote>
 <p>而我们获取的数据有些是不带市的，所以要进行一下字符串的处理</p>
-<pre><code class="python">for each_city in each[&#39;subList&#39;]:
-            city.append(each_city[&#39;city&#39;] + &quot;市&quot;)
-            confirmeds.append(each_city[&#39;confirmed&#39;])
+<pre><code class="language-python">for each_city in each['subList']:
+            city.append(each_city['city'] + &quot;市&quot;)
+            confirmeds.append(each_city['confirmed'])
             map.to_map_city(city, confirmeds, province, update_tqime)
-        if province == &#39;上海&#39; or &#39;北京&#39; or &#39;天津&#39; or &#39;重庆&#39;:
-            for each_city in each[&#39;subList&#39;]:
-                city.append(each_city[&#39;city&#39;])
-                confirmeds.append(each_city[&#39;confirmed&#39;])
-                map.to_map_city(city, confirmeds, province, update_time)</code></pre>
+        if province == '上海' or '北京' or '天津' or '重庆':
+            for each_city in each['subList']:
+                city.append(each_city['city'])
+                confirmeds.append(each_city['confirmed'])
+                map.to_map_city(city, confirmeds, province, update_time)
+</code></pre>
 <p>注意需要提前在根目录建好map文件夹，存储具体省份的疫情图。</p>
-<h3 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h3><p>中国总体累计确诊分布图：</p>
+<h3 id="最终效果">最终效果</h3>
+<p>中国总体累计确诊分布图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.2/img/blog/baiduiyq7.png" alt="img"></p>
 <p>广东省累计确诊分布图：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.2/img/blog/baiduyq8.png" alt="img"></p>
-<h3 id="具体代码实现"><a href="#具体代码实现" class="headerlink" title="具体代码实现"></a>具体代码实现</h3><p><strong>data_get.py:</strong></p>
-<pre><code class="python">import requests
+<h3 id="具体代码实现">具体代码实现</h3>
+<p><strong>data_get.py:</strong></p>
+<pre><code class="language-python">import requests
 from lxml import etree
 import json
 import re
@@ -458,47 +457,48 @@ import re
 class Get_data():
     # 抓取数据
     def get_data(self):
-        url = &#39;https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1&#39;
+        url = 'https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_1'
         response = requests.get(url)
-        with open(&#39;html.txt&#39;,&#39;w&#39;) as file:
+        with open('html.txt','w') as file:
             file.write(response.text)
             print(&quot;写入txt成功&quot;)
 
     # 获得更新时间
     def get_time(self):
-        with open(&#39;html.txt&#39;, &#39;r&#39;) as file:
+        with open('html.txt', 'r') as file:
             text = file.read()
-        time = re.findall(&#39;&quot;mapLastUpdatedTime&quot;:&quot;(.*?)&quot;&#39;, text)[0]
+        time = re.findall('&quot;mapLastUpdatedTime&quot;:&quot;(.*?)&quot;', text)[0]
         return time
 
     # 解析数据
     def parse_data(self):
-        with open(&#39;html.txt&#39;, &#39;r&#39;) as file:
+        with open('html.txt', 'r') as file:
             text = file.read()
         html = etree.HTML(text)
-        result = html.xpath(&#39;//script[@type=&quot;application/json&quot;]/text()&#39;)[0]
+        result = html.xpath('//script[@type=&quot;application/json&quot;]/text()')[0]
         result = json.loads(result)
-        result = result[&#39;component&#39;][0][&#39;caseList&#39;]
-        # result[&#39;component&#39;][0]获得列表第0项 是一个字典
-        # print(result[&#39;component&#39;][0][&#39;caseList&#39;])
+        result = result['component'][0]['caseList']
+        # result['component'][0]获得列表第0项 是一个字典
+        # print(result['component'][0]['caseList'])
         # 字典转换为字符串
         result = json.dumps(result)
-        with open(&#39;data.json&#39;, &#39;w&#39;) as file:
+        with open('data.json', 'w') as file:
             file.write(result)
-            print(&#39;写入json成功&#39;)
+            print('写入json成功')
 
 
 # data = Get_data()
 # data.get_data()
 # data.get_time()
 # data.parse_data()
+
 </code></pre>
 <p><strong>data_more.py</strong></p>
-<pre><code class="python">import json
+<pre><code class="language-python">import json
 import map_draw
 import data_get
 
-with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+with open('data.json', 'r') as file:
     data = file.read()
     data = json.loads(data)
 map = map_draw.Draw_map()
@@ -511,8 +511,8 @@ def china_map(update_time):
     confirmed = []
     for each in data:
         # print(each)
-        area.append(each[&#39;area&#39;])
-        confirmed.append(each[&#39;confirmed&#39;])
+        area.append(each['area'])
+        confirmed.append(each['confirmed'])
     map.to_map_china(area, confirmed, update_time)
 
 
@@ -521,21 +521,22 @@ def province_map(update_time):
     for each in data:
         city = []
         confirmeds = []
-        province = each[&#39;area&#39;]
+        province = each['area']
         # 出现空列表是因为特别行政区
-        for each_city in each[&#39;subList&#39;]:
-            city.append(each_city[&#39;city&#39;] + &quot;市&quot;)
-            confirmeds.append(each_city[&#39;confirmed&#39;])
+        for each_city in each['subList']:
+            city.append(each_city['city'] + &quot;市&quot;)
+            confirmeds.append(each_city['confirmed'])
             map.to_map_city(city, confirmeds, province, update_time)
-        if province == &#39;上海&#39; or &#39;北京&#39; or &#39;天津&#39; or &#39;重庆&#39;:
-            for each_city in each[&#39;subList&#39;]:
-                city.append(each_city[&#39;city&#39;])
-                confirmeds.append(each_city[&#39;confirmed&#39;])
+        if province == '上海' or '北京' or '天津' or '重庆':
+            for each_city in each['subList']:
+                city.append(each_city['city'])
+                confirmeds.append(each_city['confirmed'])
                 map.to_map_city(city, confirmeds, province, update_time)
     print(&quot;生成城市疫情地图成功&quot;)
+
 </code></pre>
 <p><strong>map_draw.py</strong></p>
-<pre><code class="python">from pyecharts import options as opts
+<pre><code class="language-python">from pyecharts import options as opts
 from pyecharts.charts import Map
 from pyecharts.faker import Faker
 
@@ -543,28 +544,28 @@ from pyecharts.faker import Faker
 class Draw_map():
     # 颜色RGB转换 脱离函数，不需要定义self
     def get_color(self,a,b,c):
-        result = &#39;#&#39;+&#39;&#39;.join(map((lambda x:&quot;%02x&quot; % x),(a,b,c)))
+        result = '#'+''.join(map((lambda x:&quot;%02x&quot; % x),(a,b,c)))
         return result.upper()
 
     def to_map_city(self, area, variate,province,update_time):
         pieces = [
-            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, &#39;label&#39;: &#39;&gt;10000&#39;, &#39;color&#39;: self.get_color(102,2,8)},
-            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, &#39;label&#39;: &#39;1000-9999&#39;, &#39;color&#39;:self.get_color(140,13,13)},
-            {&quot;max&quot;: 999, &quot;min&quot;: 500, &#39;label&#39;: &#39;500-999&#39;, &#39;color&#39;:self.get_color(204,41,41)},
-            {&quot;max&quot;: 499, &quot;min&quot;: 100, &#39;label&#39;: &#39;100-999&#39;, &#39;color&#39;: self.get_color(255,123,105)},
-            {&quot;max&quot;: 99, &quot;min&quot;: 50, &#39;label&#39;: &#39;50-99&#39;, &#39;color&#39;: self.get_color(255,170,133)},
-            {&quot;max&quot;: 49, &quot;min&quot;: 10, &#39;label&#39;: &#39;10-49&#39;, &#39;color&#39;:self.get_color(255,202,179)},
-            {&quot;max&quot;: 9, &quot;min&quot;: 1, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: self.get_color(255,228,217)},
-            {&quot;max&quot;: 0, &quot;min&quot;: 0, &#39;label&#39;: &#39;0&#39;, &#39;color&#39;: self.get_color(255,255,255)},
+            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, 'label': '&gt;10000', 'color': self.get_color(102,2,8)},
+            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, 'label': '1000-9999', 'color':self.get_color(140,13,13)},
+            {&quot;max&quot;: 999, &quot;min&quot;: 500, 'label': '500-999', 'color':self.get_color(204,41,41)},
+            {&quot;max&quot;: 499, &quot;min&quot;: 100, 'label': '100-999', 'color': self.get_color(255,123,105)},
+            {&quot;max&quot;: 99, &quot;min&quot;: 50, 'label': '50-99', 'color': self.get_color(255,170,133)},
+            {&quot;max&quot;: 49, &quot;min&quot;: 10, 'label': '10-49', 'color':self.get_color(255,202,179)},
+            {&quot;max&quot;: 9, &quot;min&quot;: 1, 'label': '1-9', 'color': self.get_color(255,228,217)},
+            {&quot;max&quot;: 0, &quot;min&quot;: 0, 'label': '0', 'color': self.get_color(255,255,255)},
         ]
 
         c = (
             # 设置地图大小
-            Map(init_opts=opts.InitOpts(width=&#39;1000px&#39;,height=&#39;880px&#39;))
+            Map(init_opts=opts.InitOpts(width='1000px',height='880px'))
                 .add(&quot;累计确诊人数&quot;, [list(z) for z in zip(area, variate)],province,is_map_symbol_show=False)
                 .set_global_opts(
-                title_opts=opts.TitleOpts(title=&quot;%s地区疫情地图分布&quot;%(province),subtitle=&#39;截至%s %s省疫情分布情况&#39;%(update_time,province)
-                                          ,pos_left=&#39;center&#39;,pos_top=&#39;30px&#39;,),
+                title_opts=opts.TitleOpts(title=&quot;%s地区疫情地图分布&quot;%(province),subtitle='截至%s %s省疫情分布情况'%(update_time,province)
+                                          ,pos_left='center',pos_top='30px',),
                 legend_opts=opts.LegendOpts(is_show=False),
                 visualmap_opts=opts.VisualMapOpts(max_=200, is_piecewise=True, pieces=pieces)
             )
@@ -574,28 +575,29 @@ class Draw_map():
     def to_map_china(self, area, variate, update_time):
         # 分段
         pieces = [
-            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, &#39;label&#39;: &#39;&gt;10000&#39;, &#39;color&#39;: &#39;#8A0808&#39;},
-            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, &#39;label&#39;: &#39;1000-9999&#39;, &#39;color&#39;: &#39;#B40404&#39;},
-            {&quot;max&quot;: 999, &quot;min&quot;: 100, &#39;label&#39;: &#39;100-999&#39;, &#39;color&#39;: &#39;#DF0101&#39;},
-            {&quot;max&quot;: 99, &quot;min&quot;: 10, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: &#39;#F5A9A9&#39;},
-            {&quot;max&quot;: 9, &quot;min&quot;: 1, &#39;label&#39;: &#39;1-9&#39;, &#39;color&#39;: &#39;#F5A9A9&#39;},
-            {&quot;max&quot;: 0, &quot;min&quot;: 0, &#39;label&#39;: &#39;0&#39;, &#39;color&#39;: &#39;#FFFFFF&#39;},
+            {&quot;max&quot;: 99999999, &quot;min&quot;: 1001, 'label': '&gt;10000', 'color': '#8A0808'},
+            {&quot;max&quot;: 9999, &quot;min&quot;: 1000, 'label': '1000-9999', 'color': '#B40404'},
+            {&quot;max&quot;: 999, &quot;min&quot;: 100, 'label': '100-999', 'color': '#DF0101'},
+            {&quot;max&quot;: 99, &quot;min&quot;: 10, 'label': '1-9', 'color': '#F5A9A9'},
+            {&quot;max&quot;: 9, &quot;min&quot;: 1, 'label': '1-9', 'color': '#F5A9A9'},
+            {&quot;max&quot;: 0, &quot;min&quot;: 0, 'label': '0', 'color': '#FFFFFF'},
         ]
         c = (
-            Map(init_opts=opts.InitOpts(width=&#39;1000px&#39;, height=&#39;880px&#39;))
+            Map(init_opts=opts.InitOpts(width='1000px', height='880px'))
                 # zip内置函数，实现数据对应
                 .add(&quot;累计确诊人数&quot;, [list(z) for z in zip(area, variate)], &quot;china&quot;)
                 .set_global_opts(
-                title_opts=opts.TitleOpts(title=&quot;中国疫情地图分布&quot;, subtitle=&#39;截至%s 中国疫情分布情况&#39; % (update_time),
-                                          pos_left=&#39;center&#39;,pos_top=&#39;30px&#39;),
+                title_opts=opts.TitleOpts(title=&quot;中国疫情地图分布&quot;, subtitle='截至%s 中国疫情分布情况' % (update_time),
+                                          pos_left='center',pos_top='30px'),
                 visualmap_opts=opts.VisualMapOpts(max_=200, is_piecewise=True, pieces=pieces),
             )
                 .render(&quot;中国疫情地图.html&quot;)
         )
         print(&quot;生成中国疫情地图成功&quot;)
+
 </code></pre>
-<p><strong>main.py</strong></p>
-<pre><code class="python">import data_more
+<p><strong><a href="http://main.py" target="_blank" rel="noopener">main.py</a></strong></p>
+<pre><code class="language-python">import data_more
 import data_get
 
 
@@ -610,7 +612,8 @@ datas.parse_data()
 # 生成中国疫情地图
 data_more.china_map(update_time)
 # 生成城市疫情地图
-data_more.province_map(update_time)</code></pre>
+data_more.province_map(update_time)
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -884,13 +887,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -1085,5 +1081,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

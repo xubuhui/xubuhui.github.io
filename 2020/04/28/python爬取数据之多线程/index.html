@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -414,22 +407,31 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这一篇我们利用多线程从<a href="https://maoyan.com/board/4?offset=0" target="_blank" rel="noopener">猫眼电影Top100</a>爬取数据。</p>
+          <h3 id="前言">前言</h3>
+<p>这一篇我们利用多线程从<a href="https://maoyan.com/board/4?offset=0" target="_blank" rel="noopener">猫眼电影Top100</a>爬取数据。</p>
 <p>多线程可以大大的提高我们爬虫的爬取速度，类似的提速方式有</p>
 <ul>
 <li>多线程</li>
 <li>进程</li>
 <li>协程</li>
 </ul>
-<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><h6 id="需要引入的包"><a href="#需要引入的包" class="headerlink" title="需要引入的包"></a>需要引入的包</h6><p><code>import requests</code><br><code>import threading</code><br><code>import parsel</code><br><code>import time</code><br><code>import openpyxl</code></p>
-<h6 id="网页分析"><a href="#网页分析" class="headerlink" title="网页分析"></a>网页分析</h6><p>其中每一部电影的信息都存在<strong>dd</strong>标签内，循环遍历dd标签可以得到对应电影的具体信息。</p>
+<h3 id="准备工作">准备工作</h3>
+<h6 id="需要引入的包">需要引入的包</h6>
+<p><code>import requests</code><br>
+<code>import threading</code><br>
+<code>import parsel</code><br>
+<code>import time</code><br>
+<code>import openpyxl</code></p>
+<h6 id="网页分析">网页分析</h6>
+<p>其中每一部电影的信息都存在<strong>dd</strong>标签内，循环遍历dd标签可以得到对应电影的具体信息。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/blog/thread.png" alt="img"></p>
 <p>控制分页的参数是offset。</p>
-<p>其中第一页是offset=0，第二页是offset=10……第10页是offset=90。</p>
+<p>其中第一页是offset=0，第二页是offset=10…第10页是offset=90。</p>
 <blockquote>
-<p> <strong>for i in range(0, 100, 10)</strong></p>
+<p><strong>for i in range(0, 100, 10)</strong></p>
 </blockquote>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="python">import requests
+<h3 id="代码实现">代码实现</h3>
+<pre><code class="language-python">import requests
 import threading
 import parsel
 import time
@@ -437,7 +439,7 @@ import openpyxl
 
 
 def url_get(ws, page):
-    url = &#39;https://maoyan.com/board/4?offset=&#39; + str(page)
+    url = 'https://maoyan.com/board/4?offset=' + str(page)
     headers = {
         &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&quot;
     }
@@ -445,15 +447,15 @@ def url_get(ws, page):
 
     sel = parsel.Selector(response.text)
     # css选择器 先取dd标签
-    dds = sel.css(&#39;dd&#39;)
+    dds = sel.css('dd')
     # 遍历dd标签
     for dd in dds:
-        name_sel = dd.css(&#39;p.name a::text&#39;).getall()[0]
+        name_sel = dd.css('p.name a::text').getall()[0]
         # strip去空格
-        star_sel = dd.css(&#39;p.star::text&#39;).getall()[0].strip()
-        time_sel = dd.css(&#39;p.releasetime::text&#39;).getall()[0]
+        star_sel = dd.css('p.star::text').getall()[0].strip()
+        time_sel = dd.css('p.releasetime::text').getall()[0]
         # 拼接
-        score_sel = &#39;&#39;.join(dd.css(&#39;p.score i::text&#39;).getall())
+        score_sel = ''.join(dd.css('p.score i::text').getall())
         data = [
             name_sel,
             star_sel,
@@ -469,25 +471,26 @@ def url_start():
     wb = openpyxl.Workbook()
     # 创建工作表
     ws = wb.active
-    ws.title = &#39;猫眼数据&#39;
+    ws.title = '猫眼数据'
     # 表头
-    ws.append([&#39;电影&#39;, &#39;主演&#39;, &#39;上映时间&#39;, &#39;评分&#39;])
+    ws.append(['电影', '主演', '上映时间', '评分'])
     for i in range(0, 100, 10):
         # 多线程，同时请求十页
         # target目标方法 args元祖参数 如果一个元祖需要在后边加 ,
         threading.Thread(target=url_get, args=(ws, i)).start()
         # url_get(ws, i)
     # 线程数11 因为有一个主线程
-    print(&#39;线程数{}&#39;.format(len(threading.enumerate())))
+    print('线程数{}'.format(len(threading.enumerate())))
     # 计算真实消耗时间
     while len(threading.enumerate()) &gt; 1:
         pass
-    wb.save(&#39;cat_data.xlsx&#39;)
+    wb.save('cat_data.xlsx')
     end_time = time.time()
     print(&quot;消耗时间:%s秒&quot; % (end_time - start_time))
 
 
-url_start()</code></pre>
+url_start()
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -515,9 +518,26 @@ url_start()</code></pre>
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/04/29/hexo快速安装插件/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/5_QMsABi85468.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/5_QMsABi85468.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                hexo快速安装插件</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
             <a href="/2020/04/27/正则表达式/" rel="next">
               <div class="background">
@@ -744,13 +764,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -945,5 +958,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>

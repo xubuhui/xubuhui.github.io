@@ -64,7 +64,7 @@
       s.parentNode.insertBefore(bp, s);
     })();
   //*******
-  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_xQAAI0d5767.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
+  var bg = "https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_osQABvGN260.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/6_qGcACEGf745.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/7_b5cABlL6856.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/9_TasAAnUj517.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/14_HuYAHbjQ716.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_tiwAA1eI498.jpg,https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.5/img/head/onePiece/1_cIEAA_ed017.jpg".split(",");
   var bgindex = Math.floor(Math.random()*bg.length);
   if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
     alert('朋友，IE浏览器未适配哦~');
@@ -230,13 +230,6 @@
                         <a href="/categories/技术/">
                           <i class="fa fa-anchor" aria-hidden="true"></i>
                           技术
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="/categories/生活/">
-                          <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                          生活
                         </a>
                       </li>
                     
@@ -415,7 +408,8 @@
         
         <div class="entry-content">
           <p>这种方式是通过修改注册表打开本地的exe可执行文件。</p>
-<h4 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h4><p>打开记事本，输入下列神秘代码</p>
+<h4 id="第一步">第一步</h4>
+<p>打开记事本，输入下列神秘代码</p>
 <pre><code>Windows Registry Editor Version 5.00
 [HKEY_CLASSES_ROOT\Typora]  //Typora   协议名称
 @=&quot;Typora Protocol&quot; //Typora   协议路径
@@ -427,9 +421,13 @@
 [HKEY_CLASSES_ROOT\Typora\shell\open]  //Typora   协议名称
 @=&quot;&quot;
 [HKEY_CLASSES_ROOT\Typora\shell\open\command]  //Typora   协议名称
-@=&quot;\&quot;E:\\Typora\\Typora.exe\&quot; &quot;   //-必须修改-协议打开运行程序绝对路径地址</code></pre><p>除了我标注-<strong>-必须修改-</strong>-的路径，其余地方可以不修改。</p>
-<h4 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h4><p>然后另存为后缀名为reg的文件，双击运行会有个提示信息，点击确认后自动生成<strong>Typora</strong>协议。</p>
-<h4 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h4><p>在html文件主要改一下a标签的href路径。</p>
+@=&quot;\&quot;E:\\Typora\\Typora.exe\&quot; &quot;   //-必须修改-协议打开运行程序绝对路径地址
+</code></pre>
+<p>除了我标注-<strong>-必须修改-</strong>-的路径，其余地方可以不修改。</p>
+<h4 id="第二步">第二步</h4>
+<p>然后另存为后缀名为reg的文件，双击运行会有个提示信息，点击确认后自动生成<strong>Typora</strong>协议。</p>
+<h4 id="第三步">第三步</h4>
+<p>在html文件主要改一下a标签的href路径。</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -440,7 +438,9 @@
 &lt;a href=&quot;Typora://&quot; &gt;运行&lt;/a&gt;
 &lt;!--点击运行 （Typora协议名称）--&gt;
 &lt;/body&gt;
-&lt;/html&gt;</code></pre><p>ok，工作完成。</p>
+&lt;/html&gt;
+</code></pre>
+<p>ok，工作完成。</p>
 
         </div>
         <!-- .entry-content -->
@@ -714,13 +714,6 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/categories/生活/">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                  生活
-                </a>
-              </li>
-            
-              <li>
                 <a href="/categories/资源/">
                   <i class="fa fa-cloud-download" aria-hidden="true"></i>
                   资源
@@ -915,5 +908,5 @@ $(document).ready(function() {
     })
   });
 </script>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</body>
 </html>
