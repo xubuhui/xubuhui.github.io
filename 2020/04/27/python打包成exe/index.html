@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Tag: 爬虫 | HeZ</title>
+  <title itemprop="name">python播放vip视频+打包成exe | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -371,361 +371,227 @@
 
 </header>
 
-      
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
-<div class="pattern-center ">
-  <div class="pattern-attachment-img">
-    <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="爬虫.img" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_9uMABF0y264.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_9uMABF0y264.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      python播放vip视频+打包成exe</h1>
+      <p class="entry-census">
+        <span>
+          <a href="xubuhui.github.io">
+            <img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg">
+          </a>
+        </span>
+        <span>
+          <a href="xubuhui.github.io">HeZ</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-4-27<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
   </div>
-  <header class="pattern-header ">
-    <h1 class="cat-title">爬虫</h1>
-  </header>
-</div>
+
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="💌实现思路">💌实现思路</h2>
+<h4 id="1-爬取解析网址解析视频url"><strong>1.爬取<a href="http://www.qmaile.com/" target="_blank" rel="noopener">解析网址</a>解析视频url</strong></h4>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip2317.png" alt="image-20200429231444665"></p>
+<h4 id="2-分析视频解析流程，拼接最终解析地址"><strong>2.分析视频解析流程，拼接最终解析地址</strong></h4>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip1313.png" alt="视频解析url"></p>
+<h4 id="3-制作gui界面"><strong>3.制作gui界面</strong></h4>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip6767.png" alt="image-20200429232443094"></p>
+<p>​				<s>请自动忽略界面🙄</s></p>
+<h4 id="4-打包成exe可执行文件"><strong>4.打包成exe可执行文件</strong></h4>
+<p>这里我使用的是pyinstaller。</p>
+<p>安装pyinstaller：</p>
+<pre><code class="language-python">pip install pyinstaller
+</code></pre>
+<p>打包exe方式，直接在.py文件同目录下cmd执行：</p>
+<pre><code class="language-python">pyinstaller vipvideo.py
+</code></pre>
+<p>这是最简单的打包方式。</p>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip3333.png" alt></p>
+<p><strong>.exe文件在根目录下dist/vipvideo下</strong></p>
+<h2 id="🎡代码实现">🎡代码实现</h2>
+<pre><code class="language-python">import requests
+from lxml import etree
+import tkinter as tk
+import webbrowser
+
+# 画板
+root = tk.Tk()
+root.title('HeZ电影')  # 标题
+root.geometry('550x280')  # 长宽  字母x表示乘
+
+gui = tk.Label(root, text='方法:复制vip电影地址到链接栏，选中一个接口点击播放', font=(&quot;宋体&quot;, 8))
+gui.grid(row=1, column=0)
+gui1 = tk.Label(root, text='播放接口', font=(&quot;Arial&quot;, 12))
+gui1.grid(row=3, column=0)
+gui2 = tk.Label(root, text='播放链接', font=(&quot;Arial&quot;, 12))
+gui2.grid(row=6, column=0)
+t1 = tk.Entry(root, text='', width=50)
+t1.grid(row=7, column=0)
+
+
+def get_url():
+    # 解析地址
+    url = 'http://www.qmaile.com/'
+    response = requests.get(url)
+    # 提取解析url
+    html = etree.HTML(response.text)
+    target = html.xpath('//option/@value')
+    # 有一个重复的url，去重
+    target = list(set(target))
+
+    return target
+
+
+# 单选按钮
+var = tk.StringVar()
+# 默认选中
+var.set(get_url()[0])
+
+for i in range(len(get_url())):
+    tk.Radiobutton(root, text='播放接口%s' % (i + 1),variable=var, value=get_url()[i]).grid(row=i, column=1)
+
+
+def del_text():
+    # 从头删到尾
+    t1.delete(0, 'end')
+
+
+def bf():
+    webbrowser.open(var.get() + t1.get())
+    # webbrowser.open()
+
+
+# 播放
+btn_play = tk.Button(root, text='播放', font=(&quot;Arial&quot;, 12), width=6, command=bf)
+btn_play.grid(row=7, column=1)
+
+# 清除
+btn_del = tk.Button(root, text='清除', font=(&quot;Arial&quot;, 12), width=6, command=del_text)  # command调用函数名
+btn_del.grid(row=7, column=2)
+# 消息循环
+root.mainloop()
+</code></pre>
+<h2 id="🕶总结">🕶总结</h2>
+<ul>
+<li><u>程序运行比较慢。</u></li>
+<li><u>代码没优化，界面就不提了。</u></li>
+<li><u>接口如果卡顿，可以切换一个试试。</u></li>
+</ul>
+<p><strong>仅供个人学习参考。</strong></p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏<div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/04/27/正则表达式/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                正则表达式</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                python爬取图片（二）-海贼王高清壁纸</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
       
-  <!-- 首页默认取最最新文章集 -->
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/29/python播放vip视频+打包成exe/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/29/python播放vip视频+打包成exe/">
-    python播放vip视频+打包成exe</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-29</div>
-    <p>
-    python播放vip视频打包成exe可执行文件</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/29/python播放vip视频+打包成exe/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/28/python爬取数据之多线程/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/28/python爬取数据之多线程/">
-    python爬取数据之多线程</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-28</div>
-    <p>
-    python多线程爬取数据</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/28/python爬取数据之多线程/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/27/python打包成exe/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_9uMABF0y264.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/27/python打包成exe/">
-    python播放vip视频+打包成exe</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-27</div>
-    <p>
-    python播放vip视频打包成exe可执行文件</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/27/python打包成exe/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/">
-    python爬取图片（二）-海贼王高清壁纸</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-26</div>
-    <p>
-    python爬取图片</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/25/python爬取百度疫情数据(三) - pyecharts疫情分布地图/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/3_cdIABgIG198.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/25/python爬取百度疫情数据(三) - pyecharts疫情分布地图/">
-    python爬取百度疫情数据(三) - pyecharts疫情分布地图</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-25</div>
-    <p>
-    python pyecharts 疫情分布地图</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/25/python爬取百度疫情数据(三) - pyecharts疫情分布地图/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/24/python爬取百度疫情数据(二) - wordcloud词云/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/5_5J0AA36j433.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/24/python爬取百度疫情数据(二) - wordcloud词云/">
-    python爬取百度疫情数据(二) - wordcloud词云</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-24</div>
-    <p>
-    python wordcloud</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/24/python爬取百度疫情数据(二) - wordcloud词云/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/23/python爬取百度疫情数据(一)/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_9bAAKKCE843.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/23/python爬取百度疫情数据(一)/">
-    python爬取百度疫情数据(一)</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-23</div>
-    <p>
-    python爬取数据</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/23/python爬取百度疫情数据(一)/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（二）/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_hEsAFfWB336.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（二）/">
-    python爬取腾讯疫情数据并可视化（二）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-22</div>
-    <p>
-    pyecharts实现csv数据可视化</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（二）/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（一）/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_DoAABllg934.jpg" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（一）/">
-    python爬取腾讯疫情数据并可视化（一）</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-22</div>
-    <p>
-    python爬取数据并保存</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/22/python爬取腾讯疫情数据并可视化（一）/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
-    <article class="post post-list" itemscope="" itemtype="http://schema.org/BlogPosting">
-  <div class="post-entry">
-    <div class="feature">
-      <a href="/2020/04/21/python爬取图片（一）-王者荣耀高清皮肤图/">
-        <div class="overlay">
-          <i class="iconfont icon-text">
-          </i>
-        </div>
-        <img width="150" height="150" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_1OIAE4nA004.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="" >
-      </a>
-    </div>
-    <h1 class="entry-title">
-    <a href="/2020/04/21/python爬取图片（一）-王者荣耀高清皮肤图/">
-    python爬取图片（一）-王者荣耀高清皮肤图</a>
-    </h1>
-    <div class="p-time">
-      <i class="iconfont icon-time">
-      </i>
-    2020-4-21</div>
-    <p>
-    python爬取图片</p>
-    <footer class="entry-footer">
-      <div class="post-more">
-        <a href="/2020/04/21/python爬取图片（一）-王者荣耀高清皮肤图/">
-          <i class="iconfont icon-caidan">
-          </i>
-        </a>
-      </div>
-    </footer>
-  </div>
-  <hr>
-</article>
-  
+<div id="vcomments"></div>
+<script>
+  window.onload = function(){
+      var valine = new Valine();
+      valine.init({
+        el: '#vcomments',
+        appId: "UlUr0C7tHlxcJfwTxebJedid-MdYXbMMI",
+        appKey: "4FOSooUGgGq09sRYAapcjQih",
+        path: window.location.pathname,
+        placeholder: "你是我一生只会遇见一次的惊喜 ..."
+      })
+  }
+</script>
 
-
-      <div class="clearer">
-      </div>
-    </main>
-    <!--  -->
-    
-  </div>
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <a href="xubuhui.github.io" class="profile gravatar"><img src="https://cdn.jsdelivr.net/gh/woshigehaoren/mycdn@1.5/img/custom/head.jpg" itemprop="image" alt="HeZ" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="xubuhui.github.io" itemprop="url" rel="author">HeZ</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一个可爱的人</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
     </div>    
     <div class="ins-search">
     <div class="ins-search-mask"></div>
