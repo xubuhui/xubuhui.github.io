@@ -163,6 +163,13 @@
   </url>
   
   <url>
+    <loc>https://xubuhui.github.io/client/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xubuhui.github.io/comment/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
@@ -177,21 +184,14 @@
   </url>
   
   <url>
-    <loc>https://xubuhui.github.io/rss/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://xubuhui.github.io/client/index.html</loc>
-    
-    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://xubuhui.github.io/tags/index.html</loc>
+    
+    <lastmod>2019-05-31T23:21:46.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xubuhui.github.io/rss/index.html</loc>
     
     <lastmod>2019-05-31T23:21:46.000Z</lastmod>
     
