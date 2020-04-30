@@ -377,7 +377,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/7_OdoABvm0432.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/7_OdoABvm0432.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -393,7 +393,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-4-29<span class="bull">
+        2020-4-30<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -407,7 +407,105 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="💌实现思路">💌实现思路</h2>
+          <h2 id="🛬前言">🛬前言</h2>
+<p>大家在用爬虫爬取数据的时候总会遇到被网站封IP的情况，而且封禁时间也会越来越长。</p>
+<p>有时候设置爬取延迟，并不能解决问题，因为，虽然你给你的爬虫程序设置了休眠时间，但是你的IP请求会记录在对方服务器的日志中，一看一连串的IP都是同一个，这不禁你禁谁。</p>
+<p>所以IP代理的方式就很好的解决了这种问题，多IP请求，欺骗服务器，而且网上也有很多免费的代理地址，</p>
+<p>当然只是作为大家学习参考用🙄。</p>
+<h2 id="💌实现思路">💌实现思路</h2>
+<h4 id="1-分析目标网站">1.分析<a href="https://www.kuaidaili.com/free/inha/1/" target="_blank" rel="noopener">目标网站</a></h4>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/ippool1.png" alt="image-20200430153537046"></p>
+<p>分页的实现主要是你点击进入不同页面，查看url地址的变化，根据url变化，写出通式。</p>
+<h4 id="2-爬取需要的数据">2.爬取需要的数据</h4>
+<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/ippool.png" alt="image-20200430153706879"></p>
+<p>解析数据我使用的parsel库， 建议大家放弃BeautifulSoup和etree。</p>
+<p>因为parsel既好用，提升空间也高。</p>
+<p>而且parsel库集合了css，xpath，re解析方式。</p>
+<h4 id="3-筛选合格的代理IP">3.筛选合格的代理IP</h4>
+<p>我们上一步把数据爬取下来，因为是无差别爬取，所以难免有一些质量差、响应慢的代理Ip，</p>
+<p>所以我们需要通过判断响应时间来筛选出合格的代理IP。</p>
+<pre><code class="language-python">try:
+    # proxies ——代理IP  timeout=0.1——0.1秒内访问成功算合格
+    response = requests.get(&quot;http://www.baidu.com&quot;, headers=headers, proxies=proxie, timeout=0.2)
+    # 状态码200表示请求成功
+    if response.status_code == 200:
+        proxies_ok.append(proxie)
+except Exception as e:
+    # 打印垃圾代理IP和错误信息
+    print(proxie, e)
+</code></pre>
+<h2 id="🍥代码实现">🍥代码实现</h2>
+<pre><code class="language-python">import pprint
+import time
+import requests
+import parsel
+
+
+def proxies_get(page, proxies_list):
+    &quot;&quot;&quot;爬取多页代理IP&quot;&quot;&quot;
+    url = &quot;https://www.kuaidaili.com/free/inha/{}/&quot;.format(page)
+    headers = {
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&quot;
+    }
+    response = requests.get(url, headers=headers)
+    # 筛选需要的数据tr
+    html = parsel.Selector(response.text)
+    tr = html.css('tbody tr')
+    # 遍历每行获取td
+    for td in tr:
+        proxies_dict = {}
+        ip_data = td.css('td[data-title*=&quot;IP&quot;]::text').get()
+        port_data = td.css('td[data-title*=&quot;PORT&quot;]::text').get()
+        type_data = td.css('td[data-title*=&quot;类型&quot;]::text').get()
+        # 拼接成 ip:port
+        url_str = &quot;{}:{}&quot;.format(ip_data, port_data)
+        proxies_dict[type_data] = url_str
+        # 将字典数据添加到proxies_list列表
+        proxies_list.append(proxies_dict)
+
+
+def check_ip(proxies_list):
+    &quot;&quot;&quot;筛选代理IP的方法&quot;&quot;&quot;
+    headers = {
+        &quot;User-Agent&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36&quot;
+    }
+    # 列表接收合格代理IP
+    proxies_ok = []
+    # 遍历爬下来的全部IP
+    i = 0
+    for proxie in proxies_list:
+        # 捕获请求不成功异常
+        try:
+            # proxies ——代理IP  timeout=0.2——0.2秒内访问成功算合格
+            response = requests.get(&quot;http://www.baidu.com&quot;, headers=headers, proxies=proxie, timeout=0.2)
+            # 状态码200表示请求成功
+            if response.status_code == 200:
+                proxies_ok.append(proxie)
+        except Exception as e:
+            # 打印垃圾代理IP和错误信息
+            print(proxie, e)
+    # 返回合格代理IP
+    return proxies_ok
+
+
+# proxies_list存储未筛选的代理IP
+proxies_list = []
+# 控制爬取页数
+for page in range(3):
+    # 休眠时间，防止速度太快，数据没爬下来
+    time.sleep(1)
+    proxies_get((page + 1), proxies_list)
+    print(&quot;==============第{}页数据爬取完毕==============&quot;.format(page + 1))
+
+# 打印未筛选的代理IP池  pprint格式化 = print打印出来好看点
+print(proxies_list, &quot;共有代理IP：{}个&quot;.format(len(proxies_list)))
+print(&quot;===============筛选代理IP================&quot;)
+# 打印合格代理IP池
+proxies_use = check_ip(proxies_list)
+print(proxies_use, &quot;共有合格代理IP：{}个&quot;.format(len(proxies_use)))
+</code></pre>
+<p>当然也可以直接将获得的代理IP数据存入excel中，以便下次使用。</p>
+<p>下一篇介绍  <strong>代理IP地址的存入和读取</strong>。</p>
 
         </div>
         <!-- .entry-content -->
@@ -435,36 +533,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+        
           
-            <div class="post-nepre half previous">
+            <div class="post-nepre full next">
           
-            <a href="/2020/04/29/python播放vip视频+打包成exe/" rel="prev">
+            <a href="/2020/04/29/python播放vip视频+打包成exe/" rel="next">
               <div class="background">
                 <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                python播放vip视频+打包成exe</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2020/04/29/github+picgo+typora搭建图床/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/8_eMkAClPp998.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/8_eMkAClPp998.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                github+picgo+typora搭建图床</h3>
+                python播放vip视频+打包成exe</h3>
                 <hr>
               </div>
             </a>
