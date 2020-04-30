@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">python播放vip视频+打包成exe | HeZ</title>
+  <title itemprop="name">python爬取IP代理 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -377,11 +377,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_9uMABF0y264.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_9uMABF0y264.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      python播放vip视频+打包成exe</h1>
+      python爬取IP代理</h1>
       <p class="entry-census">
         <span>
           <a href="xubuhui.github.io">
@@ -393,7 +393,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-4-27<span class="bull">
+        2020-4-29<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -408,94 +408,6 @@
         
         <div class="entry-content">
           <h2 id="💌实现思路">💌实现思路</h2>
-<h4 id="1-爬取解析网址解析视频url"><strong>1.爬取<a href="http://www.qmaile.com/" target="_blank" rel="noopener">解析网址</a>解析视频url</strong></h4>
-<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip2317.png" alt="image-20200429231444665"></p>
-<h4 id="2-分析视频解析流程，拼接最终解析地址"><strong>2.分析视频解析流程，拼接最终解析地址</strong></h4>
-<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip1313.png" alt="视频解析url"></p>
-<h4 id="3-制作gui界面"><strong>3.制作gui界面</strong></h4>
-<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip6767.png" alt="image-20200429232443094"></p>
-<p>​				<s>请自动忽略界面🙄</s></p>
-<h4 id="4-打包成exe可执行文件"><strong>4.打包成exe可执行文件</strong></h4>
-<p>这里我使用的是pyinstaller。</p>
-<p>安装pyinstaller：</p>
-<pre><code class="language-python">pip install pyinstaller
-</code></pre>
-<p>打包exe方式，直接在.py文件同目录下cmd执行：</p>
-<pre><code class="language-python">pyinstaller vipvideo.py
-</code></pre>
-<p>这是最简单的打包方式。</p>
-<p><img src="https://raw.githubusercontent.com/xubuhui/pgcdn/master/vip3333.png" alt></p>
-<p><strong>.exe文件在根目录下dist/vipvideo下</strong></p>
-<h2 id="🎡代码实现">🎡代码实现</h2>
-<pre><code class="language-python">import requests
-from lxml import etree
-import tkinter as tk
-import webbrowser
-
-# 画板
-root = tk.Tk()
-root.title('HeZ电影')  # 标题
-root.geometry('550x280')  # 长宽  字母x表示乘
-
-gui = tk.Label(root, text='方法:复制vip电影地址到链接栏，选中一个接口点击播放', font=(&quot;宋体&quot;, 8))
-gui.grid(row=1, column=0)
-gui1 = tk.Label(root, text='播放接口', font=(&quot;Arial&quot;, 12))
-gui1.grid(row=3, column=0)
-gui2 = tk.Label(root, text='播放链接', font=(&quot;Arial&quot;, 12))
-gui2.grid(row=6, column=0)
-t1 = tk.Entry(root, text='', width=50)
-t1.grid(row=7, column=0)
-
-
-def get_url():
-    # 解析地址
-    url = 'http://www.qmaile.com/'
-    response = requests.get(url)
-    # 提取解析url
-    html = etree.HTML(response.text)
-    target = html.xpath('//option/@value')
-    # 有一个重复的url，去重
-    target = list(set(target))
-
-    return target
-
-
-# 单选按钮
-var = tk.StringVar()
-# 默认选中
-var.set(get_url()[0])
-
-for i in range(len(get_url())):
-    tk.Radiobutton(root, text='播放接口%s' % (i + 1),variable=var, value=get_url()[i]).grid(row=i, column=1)
-
-
-def del_text():
-    # 从头删到尾
-    t1.delete(0, 'end')
-
-
-def bf():
-    webbrowser.open(var.get() + t1.get())
-    # webbrowser.open()
-
-
-# 播放
-btn_play = tk.Button(root, text='播放', font=(&quot;Arial&quot;, 12), width=6, command=bf)
-btn_play.grid(row=7, column=1)
-
-# 清除
-btn_del = tk.Button(root, text='清除', font=(&quot;Arial&quot;, 12), width=6, command=del_text)  # command调用函数名
-btn_del.grid(row=7, column=2)
-# 消息循环
-root.mainloop()
-</code></pre>
-<h2 id="🕶总结">🕶总结</h2>
-<ul>
-<li><u>程序运行比较慢。</u></li>
-<li><u>代码没优化，界面就不提了。</u></li>
-<li><u>接口如果卡顿，可以切换一个试试。</u></li>
-</ul>
-<p><strong>仅供个人学习参考。</strong></p>
 
         </div>
         <!-- .entry-content -->
@@ -526,15 +438,15 @@ root.mainloop()
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/04/27/正则表达式/" rel="prev">
+            <a href="/2020/04/29/python播放vip视频+打包成exe/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/21_eA4ABeap386.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                正则表达式</h3>
+                python播放vip视频+打包成exe</h3>
                 <hr>
               </div>
             </a>
@@ -544,15 +456,15 @@ root.mainloop()
           
             <div class="post-nepre half next">
           
-            <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/" rel="next">
+            <a href="/2020/04/29/github+picgo+typora搭建图床/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/8_eMkAClPp998.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/8_eMkAClPp998.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                python爬取图片（二）-海贼王高清壁纸</h3>
+                github+picgo+typora搭建图床</h3>
                 <hr>
               </div>
             </a>
