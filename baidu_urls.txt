@@ -1,1 +1,1 @@
-https://xubuhui.github.io/2020/04/30/python爬取IP代理/
+https://xubuhui.github.io/2020/05/01/python爬取IP代理(二)存储为IP池/
