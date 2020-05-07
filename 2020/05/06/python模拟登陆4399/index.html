@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">正则表达式 | HeZ</title>
+  <title itemprop="name">python 模拟登陆4399 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -377,11 +377,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_STkAFWq6854.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_STkAFWq6854.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      正则表达式</h1>
+      python 模拟登陆4399</h1>
       <p class="entry-census">
         <span>
           <a href="xubuhui.github.io">
@@ -393,7 +393,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-4-27<span class="bull">
+        2020-5-6<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -407,104 +407,96 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h1>re正则表达式</h1>
-<h2 id="作用">作用</h2>
+          <h2 id="🛫第一种方式">🛫第一种方式</h2>
+<h4 id="实现思路">实现思路</h4>
+<p><strong>模拟真人登陆4399的操作</strong></p>
 <ol>
-<li>匹配字符串</li>
-<li>从字符串中获取想要的部分</li>
-<li>对目标字符串进行替换</li>
+<li>打开<a href="http://www.4399.com/" target="_blank" rel="noopener">4399网址</a></li>
+<li>点击登录</li>
+<li>定位到新的iframe登陆窗口</li>
+<li>输入4399账号</li>
+<li>输入4399密码</li>
+<li>点击iframe登录</li>
 </ol>
-<h2 id="正则表达式的使用">正则表达式的使用</h2>
-<h4 id="🍺在python中使用，需要引入re模块">🍺在python中使用，需要引入<strong>re</strong>模块</h4>
+<p><img src="https://cdn.jsdelivr.net/gh/xubuhui/pgcdn/20200507115158.png" alt></p>
+<h4 id="使用selenium库，首次使用需要绑定浏览器配置">使用selenium库，首次使用需要绑定浏览器配置</h4>
+<ol>
+<li>
+<p><strong>安装selenium</strong></p>
 <blockquote>
-<p>import re</p>
+<p>pip install selenium</p>
 </blockquote>
-<h4 id="😇匹配字符">😇匹配字符</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"><strong>符号</strong></th>
-<th style="text-align:left"><strong>作用</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">*<em>*</em></td>
-<td style="text-align:left">转义符，改变原来符号含义，后面会有演示</td>
-</tr>
-<tr>
-<td style="text-align:center"><strong>[ ]</strong></td>
-<td style="text-align:left">中括号用来创建一个字符集，第一个出现字符如果是^，表示反向匹配</td>
-</tr>
-</tbody>
-</table>
-<h4 id="😀预定义字符集">😀预定义字符集</h4>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>\d</strong></td>
-<td>匹配数字，如：[0-9]</td>
-</tr>
-<tr>
-<td><strong>\D</strong></td>
-<td>与上面正好相反，匹配所有非数字字符。</td>
-</tr>
-<tr>
-<td><strong>\s</strong></td>
-<td>空白字符，如：空格，\t\r\n\f\v等。</td>
-</tr>
-<tr>
-<td><strong>\S</strong></td>
-<td>非空白字符。</td>
-</tr>
-<tr>
-<td><strong>\w</strong></td>
-<td>单词字符，如：大写A~Z，小写a~z，数字0~9。</td>
-</tr>
-<tr>
-<td><strong>\W</strong></td>
-<td>非\w字符。</td>
-</tr>
-</tbody>
-</table>
-<h4 id="😃可选项与重复子模式">😃可选项与重复子模式</h4>
-<table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*****</td>
-<td>匹配前一个字符0次或无限次数。</td>
-</tr>
-<tr>
-<td><strong>+</strong></td>
-<td>匹配前一个字符1次或无限次数。</td>
-</tr>
-<tr>
-<td><strong>?</strong></td>
-<td>匹配前一个字符0次或1次。</td>
-</tr>
-<tr>
-<td><strong>{m}</strong></td>
-<td>匹配前一个字符m次。</td>
-</tr>
-<tr>
-<td><strong>{m,n}</strong></td>
-<td>匹配前一个字符m至n次。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="未完">未完</h2>
+</li>
+<li>
+<p><strong>打开chrome 输入 “chrome://version/” 查看chrome版本</strong></p>
+</li>
+<li>
+<p><strong>下载对应版本的谷chrome 驱动——<a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">下载网址</a></strong></p>
+</li>
+<li>
+<p><strong>把下载好的chrome 驱动，放在python安装根目录</strong></p>
+</li>
+<li>
+<p><strong>这样初始环境我们就配置好了</strong></p>
+</li>
+</ol>
+<h4 id="代码">代码</h4>
+<pre><code class="language-python">from selenium import webdriver
+&quot;&quot;&quot;selenium 模拟登陆4399&quot;&quot;&quot;
+# 实例化浏览器对象
+driver = webdriver.Chrome()
+# 目标url
+driver.get('http://www.4399.com/')
+# 模拟点击
+driver.find_element_by_xpath('//*[@id=&quot;login_tologin&quot;]').click()
+# 新界面需要提前进入
+driver.switch_to.frame('popup_login_frame')
+# 账号 密码输入
+driver.find_element_by_xpath('//*[@id=&quot;username&quot;]').send_keys('4399账号')
+driver.find_element_by_xpath('//*[@id=&quot;j-password&quot;]').send_keys('4399密码')
+# 登陆选择
+driver.find_element_by_xpath('//*[@id=&quot;login_form&quot;]/fieldset/div[5]/input').click()
+</code></pre>
+<h2 id="🚈第二种方式">🚈第二种方式</h2>
+<h4 id="直接爬虫用requests库实现">直接爬虫用requests库实现</h4>
+<p><strong>安装requests</strong></p>
+<blockquote>
+<p>pip install requests</p>
+</blockquote>
+<p><strong>通过抓包的方式提交信息</strong></p>
+<p><strong>把登陆后的页面保存为html文件</strong></p>
+<h4 id="代码-2">代码</h4>
+<pre><code class="language-python">import requests
+#模拟登陆4399 成功 一定要灵活运用session()这个好东西
+#这是我们要提交的表单
+data={
+'loginFrom':'uframe',
+'postLoginHandler':'default',
+'layoutSelfAdapting':'true',
+'externalLogin':'qq',
+'displayMode':'popup',
+ 'layout':'vertical',
+ 'appId':'www_home',
+ 'mainDivId':'popup_login_div',
+ 'includeFcmInfo':'false',
+ 'userNameLabel':'4399用户名',
+ 'userNameTip':'请输入4399用户名',
+ 'welcomeTip':'欢迎回到4399',
+ 'username':'你的4399账号',  # 需要修改，填写自己的4399账号
+'password':'你的4399密码'	# 需要修改，填写自己的4399密码
+ }
+headers={
+ 'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+ }
+url='http://ptlogin.4399.com/ptlogin/login.do?v=1'
+session=requests.Session()
+res=session.post(url=url,data=data,headers=headers)
+res2=session.get(url='http://u.4399.com/user/info',headers=headers) #成功登陆以后，查看我们的用户数据
+# 这里把我们的请求结果保存到文件
+f=open('4399.html','wb')
+f.write(res2.content)
+f.close()
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -532,36 +524,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/04/28/python爬取数据之多线程/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_334ABqE_810.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                python爬取数据之多线程</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/04/26/python爬取图片（二）-海贼王高清壁纸/" rel="next">
+            <a href="/2020/05/05/正则表达式/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/4_suwABKRR562.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                python爬取图片（二）-海贼王高清壁纸</h3>
+                正则表达式</h3>
                 <hr>
               </div>
             </a>

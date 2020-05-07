@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">python拟人自动化 | HeZ</title>
+  <title itemprop="name">正则表达式 | HeZ</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -377,11 +377,11 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/9_LMsACFvJ632.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/9_LMsACFvJ632.jpg">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/2__7oAAjR_286.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      python拟人自动化</h1>
+      正则表达式</h1>
       <p class="entry-census">
         <span>
           <a href="xubuhui.github.io">
@@ -393,7 +393,7 @@
         </span>
         <span class="bull">
         ·</span>
-        2020-5-2<span class="bull">
+        2020-5-5<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -407,11 +407,135 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <h2 id="🛬前言">🛬前言</h2>
-<h2 id="🚅准备工作">🚅准备工作</h2>
-<p>安装PyAutoGUI - 拟人自动化操作工具</p>
-<p><code>pip install PyAutoGUI</code></p>
-<p><a href="https://github.com/asweigart/pyautogui" target="_blank" rel="noopener">github地址</a></p>
+          <h1>re正则表达式</h1>
+<h2 id="作用">作用</h2>
+<ol>
+<li>匹配字符串</li>
+<li>从字符串中获取想要的部分</li>
+<li>对目标字符串进行替换</li>
+</ol>
+<h2 id="正则表达式的使用">正则表达式的使用</h2>
+<h4 id="🍺在python中使用，需要引入re模块">🍺在python中使用，需要引入<strong>re</strong>模块</h4>
+<blockquote>
+<p>import re</p>
+</blockquote>
+<h4 id="😇匹配字符">😇匹配字符</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><strong>符号</strong></th>
+<th style="text-align:left"><strong>作用</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*<em>*</em></td>
+<td style="text-align:left">转义符，改变原来符号含义，后面会有演示</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>[ ]</strong></td>
+<td style="text-align:left">中括号用来创建一个字符集，第一个出现字符如果是^，表示反向匹配</td>
+</tr>
+</tbody>
+</table>
+<h4 id="😀预定义字符集">😀预定义字符集</h4>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>\d</strong></td>
+<td>匹配数字，如：[0-9]</td>
+</tr>
+<tr>
+<td><strong>\D</strong></td>
+<td>与上面正好相反，匹配所有非数字字符。</td>
+</tr>
+<tr>
+<td><strong>\s</strong></td>
+<td>空白字符，如：空格，\t\r\n\f\v等。</td>
+</tr>
+<tr>
+<td><strong>\S</strong></td>
+<td>非空白字符。</td>
+</tr>
+<tr>
+<td><strong>\w</strong></td>
+<td>单词字符，如：大写A~Z，小写a~z，数字0~9，下划线 _ 。</td>
+</tr>
+<tr>
+<td><strong>\W</strong></td>
+<td>非\w字符。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="😃可选项与重复子模式">😃可选项与重复子模式</h4>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*****</td>
+<td>匹配前一个字符0次或无限次数。</td>
+</tr>
+<tr>
+<td><strong>+</strong></td>
+<td>匹配前一个字符1次或无限次数。</td>
+</tr>
+<tr>
+<td><strong>?</strong></td>
+<td>匹配前一个字符0次或1次。</td>
+</tr>
+<tr>
+<td><strong>{m}</strong></td>
+<td>匹配前一个字符m次。</td>
+</tr>
+<tr>
+<td><strong>{m,n}</strong></td>
+<td>匹配前一个字符m至n次。</td>
+</tr>
+<tr>
+<td><strong>{m,}</strong></td>
+<td>至少m次</td>
+</tr>
+</tbody>
+</table>
+<h4 id="🙄边界字符">🙄边界字符</h4>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^</td>
+<td>匹配字符串开头</td>
+</tr>
+<tr>
+<td>$</td>
+<td>匹配字符串结尾</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>匹配一个单词的边界</td>
+</tr>
+<tr>
+<td>\B</td>
+<td>匹配非单词边界</td>
+</tr>
+</tbody>
+</table>
+<h2 id="未完">未完</h2>
 
         </div>
         <!-- .entry-content -->
@@ -439,19 +563,36 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/05/06/python模拟登陆4399/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_STkAFWq6854.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_STkAFWq6854.jpg">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                python 模拟登陆4399</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
         
           
-            <div class="post-nepre full next">
+            <div class="post-nepre half next">
           
-            <a href="/2020/05/02/python实现RSS解析/" rel="next">
+            <a href="/2020/05/03/我用python写的祖安人必备程序/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_8XgAFLiK817.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/1_8XgAFLiK817.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/9_LMsACFvJ632.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/xubuhui/mycdn@3.0.4/img/head/onePiece/9_LMsACFvJ632.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                python实现RSS解析</h3>
+                我用python写的祖安人必备程序</h3>
                 <hr>
               </div>
             </a>
